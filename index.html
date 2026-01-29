@@ -3,182 +3,151 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Amrit Dwar | The Forbidden Portal</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Raleway:wght@300;400&display=swap" rel="stylesheet">
+    <title>AMRIT DWAR | The Forbidden Portal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         :root {
             --gold: #d4af37;
-            --deep-black: #0a0a0a;
+            --deep-black: #050505;
             --blood-red: #800000;
-            --text-gray: #b0b0b0;
+            --text-gray: #a0a0a0;
+            --accent-glow: rgba(212, 175, 55, 0.2);
         }
 
-        body {
-            margin: 0;
-            background-color: var(--deep-black);
-            color: white;
-            font-family: 'Raleway', sans-serif;
-            overflow-x: hidden;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background-color: var(--deep-black); color: #fff; font-family: 'Raleway', sans-serif; line-height: 1.6; overflow-x: hidden; }
+        h1, h2, h3, h4 { font-family: 'Cinzel', serif; color: var(--gold); letter-spacing: 2px; text-transform: uppercase; }
 
-        h1, h2, h3 { font-family: 'Cinzel', serif; letter-spacing: 2px; color: var(--gold); }
+        /* SCROLLING TICKER: "WHAT'S NEW" */
+        .ticker-wrap { background: var(--blood-red); border-bottom: 1px solid var(--gold); padding: 8px 0; overflow: hidden; position: fixed; top: 0; width: 100%; z-index: 1000; }
+        .ticker { display: inline-block; white-space: nowrap; animation: marquee 35s linear infinite; font-weight: 700; font-size: 0.8rem; letter-spacing: 1px; }
+        @keyframes marquee { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
 
-        /* Scarcity Marquee */
-        .news-ticker {
-            background: var(--blood-red);
-            color: white;
-            padding: 10px 0;
-            overflow: hidden;
-            white-space: nowrap;
-            font-size: 0.9rem;
-            font-weight: bold;
-            border-bottom: 1px solid var(--gold);
-        }
-        .ticker-content {
-            display: inline-block;
-            animation: marquee 30s linear infinite;
-        }
-        @keyframes marquee {
-            0% { transform: translateX(100%); }
-            100% { transform: translateX(-100%); }
-        }
+        /* HERO SECTION */
+        .hero { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 0 10%; background: radial-gradient(circle, #1a1a1a 0%, #050505 100%); }
+        .hero p.manuscript-tag { color: var(--gold); font-style: italic; margin-bottom: 10px; font-size: 0.9rem; }
+        .hero h1 { font-size: clamp(2.5rem, 8vw, 5rem); margin-bottom: 20px; text-shadow: 0 0 30px var(--accent-glow); }
+        .hero-subtext { max-width: 800px; color: var(--text-gray); font-size: 1.1rem; margin-bottom: 40px; }
 
-        /* Hero Section */
-        .hero {
-            height: 90vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            background: radial-gradient(circle, #1a1a1a 0%, #000 100%);
-            padding: 20px;
-        }
-        .hero h1 { font-size: 3rem; margin-bottom: 10px; }
-        .hero p { max-width: 600px; color: var(--text-gray); line-height: 1.6; }
+        /* LIVE COURSES SECTION */
+        .section { padding: 100px 10%; border-bottom: 1px solid #1a1a1a; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 50px; }
+        .card { background: #0a0a0a; border: 1px solid #222; padding: 40px; transition: 0.5s; cursor: pointer; position: relative; }
+        .card:hover { border-color: var(--gold); box-shadow: 0 0 25px var(--accent-glow); transform: translateY(-10px); }
+        .card h3 { margin-bottom: 15px; font-size: 1.2rem; }
+        .card p { font-size: 0.9rem; color: var(--text-gray); }
+        .badge { position: absolute; top: 15px; right: 15px; background: var(--blood-red); font-size: 0.6rem; padding: 3px 8px; font-weight: bold; color: white; }
 
-        /* Floating Buttons */
-        .floating-apply {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background: var(--gold);
-            color: black;
-            padding: 15px 30px;
-            border-radius: 50px;
-            font-weight: bold;
-            text-decoration: none;
-            box-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
-            z-index: 1000;
-            transition: 0.3s;
-        }
-        .whatsapp-btn {
-            position: fixed;
-            bottom: 30px;
-            left: 30px;
-            background: #25D366;
-            color: white;
-            padding: 15px;
-            border-radius: 50%;
-            z-index: 1000;
-            box-shadow: 0 0 15px rgba(0,0,0,0.5);
-        }
+        /* VAULT / LIBRARY SECTION */
+        .vault-header { text-align: center; margin-bottom: 60px; }
+        .vault-stats { font-size: 2.5rem; color: var(--gold); font-family: 'Cinzel'; margin: 20px 0; }
 
-        /* Sections */
-        .section { padding: 80px 10%; border-bottom: 1px solid #222; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 40px; }
-        .card {
-            background: #111;
-            padding: 30px;
-            border: 1px solid #222;
-            transition: 0.4s;
-            cursor: pointer;
-        }
-        .card:hover { border-color: var(--gold); transform: translateY(-5px); }
+        /* FLOATING UI */
+        .float-apply { position: fixed; bottom: 30px; right: 30px; background: var(--gold); color: black; padding: 18px 40px; border-radius: 50px; font-weight: 900; text-decoration: none; box-shadow: 0 0 40px var(--accent-glow); z-index: 999; animation: pulse 2s infinite; font-family: 'Cinzel'; }
+        .float-wa { position: fixed; bottom: 30px; left: 30px; background: #25D366; color: white; width: 65px; height: 65px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 2rem; z-index: 999; box-shadow: 0 10px 20px rgba(0,0,0,0.5); transition: 0.3s; }
+        .float-wa:hover { transform: scale(1.1); }
+        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.08); } 100% { transform: scale(1); } }
 
-        /* Popup */
-        #applyPopup {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: #111;
-            padding: 40px;
-            border: 2px solid var(--gold);
-            z-index: 2000;
-            width: 90%;
-            max-width: 500px;
-        }
-        .overlay {
-            display: none;
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.9);
-            z-index: 1999;
+        /* POPUP MODAL */
+        #popup-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); z-index: 10000; justify-content: center; align-items: center; padding: 20px; }
+        .popup-content { background: #0f0f0f; border: 1px solid var(--gold); padding: 50px; max-width: 600px; text-align: center; position: relative; }
+        .popup-content h2 { margin-bottom: 20px; }
+        .btn-wa-apply { display: inline-block; background: var(--gold); color: black; padding: 15px 30px; text-decoration: none; font-weight: bold; margin-top: 25px; transition: 0.3s; }
+        .btn-wa-apply:hover { background: #fff; }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .section { padding: 60px 5%; }
         }
     </style>
 </head>
 <body>
 
-    <div class="news-ticker">
-        <div class="ticker-content">
-            ⚠️ CONFIDENTIAL: 2 Slots remaining for February Initiation  | New Manuscript added to Secret Library | Guru-ji accepting Energy Checks now [cite: 41] | WARNING: Do not share with the uninitiated [cite: 2]
+    <div class="ticker-wrap">
+        <div class="ticker">
+            ⚠️ CONFIDENTIAL: 2 SLOTS REMAINING FOR FEBRUARY INITIATION &nbsp;&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;&nbsp; 
+            SECRET ARCHIVE STATUS: 28,155+ ENCRYPTED VOLUMES DETECTED &nbsp;&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;&nbsp; 
+            NEW CATEGORIES: AKASHIC RECORDS, BLACK MAGIC & NEUROLINGUISTIC HEALING ADDED &nbsp;&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;&nbsp; 
+            WARNING: DO NOT SHARE THIS PORTAL WITH THE UNINITIATED
         </div>
     </div>
 
     <section class="hero">
+        <p class="manuscript-tag">From the Forbidden Manuscript</p>
         <h1>AMRIT DWAR</h1>
-        <p>The science of Divine Magnetism. Modern life has "muted" your biological divinity. This is the key to unmuting it[cite: 7]. The portal is open[cite: 46]. Do you have the courage to step in? [cite: 48]</p>
-        <div style="margin-top: 30px;">
-            <a href="#courses" style="color: var(--gold); text-decoration: none; margin-right: 20px;">[ BROWSE COURSES ]</a>
-            <a href="#library" style="color: var(--gold); text-decoration: none;">[ SECRET LIBRARY ]</a>
+        <p class="hero-subtext">
+            Modern life has "muted" your biological divinity. You are living with 'Dry Energy'. 
+            This portal is the science of <strong>Divine Magnetism</strong>—the 5,000-year-old secret 
+            to unblocking your Sacred Energy Center and reclaiming your hypnotic pheromonal signal.
+        </p>
+        <div style="margin-top: 20px;">
+            <a href="#courses" style="color: var(--gold); text-decoration: none; margin-right: 30px; font-weight: bold;">[ BROWSE INITIATIONS ]</a>
+            <a href="#vault" style="color: var(--gold); text-decoration: none; font-weight: bold;">[ THE AKASHIC VAULT ]</a>
         </div>
     </section>
 
     <section class="section" id="courses">
-        <h2>Live Initiations</h2>
+        <h2 style="text-align:center;">Sacred Initiations</h2>
+        <p style="text-align:center; color: var(--text-gray);">These are not classes. They are Energy Alchemies.</p>
         <div class="grid">
             <div class="card">
-                <h3>One-to-One Secret Rituals [cite: 30]</h3>
-                <p>Not classes, but Energy Alchemies. Includes Shaktipat and Kundalini ignition[cite: 30, 33].</p>
+                <div class="badge">ELITE</div>
+                <h3>1-on-1 Secret Rituals</h3>
+                <p>Personal Shaktipat and Kundalini ignition. Guru-ji guides you through the high-voltage energy transmission.</p>
             </div>
             <div class="card">
-                <h3>Karmic Womb Cleansing [cite: 32]</h3>
-                <p>Deleting energetic "imprints" of previous partners to restore your magnetic signal[cite: 32].</p>
+                <h3>Karmic Womb Cleansing</h3>
+                <p>Deleting energetic "ghosts" of the past. Reset your magnetic signal to its pure, divine state.</p>
+            </div>
+            <div class="card">
+                <h3>Amrit Ganda Activation</h3>
+                <p>The science of the hypnotic scent. Awaken the pheromonal magnetism that modern toxins have suppressed.</p>
             </div>
         </div>
     </section>
 
-    <section class="section" id="library">
-        <h2>The Forbidden Library</h2>
-        <p>Explore 29,000+ secret knowledge-based spiritual books from forgotten lineages.</p>
-        <div class="grid">
-            <div class="card"><h4>Tantra & Alchemy</h4></div>
-            <div class="card"><h4>Vedic Bio-Hacking</h4></div>
-            <div class="card"><h4>Shadow Integration</h4></div>
+    <section class="section" id="vault">
+        <div class="vault-header">
+            <h2>The Secret Knowledge Library</h2>
+            <div class="vault-stats">28,155+</div>
+            <p>FILES OF FORBIDDEN WISDOM INDEXED</p>
         </div>
+        <div class="grid">
+            <div class="card"><h4>Vedas & Sadhana</h4><p>All 4 Vedas, Upanishads, and original Sanskrit disciplines.</p></div>
+            <div class="card" style="border-color: #440000;"><h4>The Left-Hand Path</h4><p>Voodoo, Witchcraft, Black Magic, and Shadow Rituals.</p></div>
+            <div class="card"><h4>Cosmic Sciences</h4><p>Astro, Vastu, Numerology, Tarot, and Akashic Records.</p></div>
+            <div class="card"><h4>Energy Healing</h4><p>Reiki, NLP, Ayurveda, and Chakra Balancing.</p></div>
+            <div class="card"><h4>Tantric Arts</h4><p>Mantra, Yantra, and the Hidden Science of Manifestation.</p></div>
+            <div class="card"><h4>Third Eye Mastery</h4><p>The protocols for Pineal Gland activation and Astral Travel.</p></div>
+        </div>
+        <p style="text-align: center; margin-top: 50px; color: var(--gold); font-style: italic;">
+            Access to the Telegram Private Archive is granted only to the Initiated.
+        </p>
     </section>
 
-    <a href="https://wa.me/YOURNUMBER" class="whatsapp-btn">💬</a>
-    <a href="javascript:void(0)" class="floating-apply" onclick="togglePopup()">APPLY NOW</a>
+    <a href="https://wa.me/YOUR_PHONE_NUMBER" class="float-wa">💬</a>
+    <a href="javascript:void(0)" class="float-apply" onclick="openPopup()">APPLY NOW</a>
 
-    <div class="overlay" id="overlay" onclick="togglePopup()"></div>
-    <div id="applyPopup">
-        <h3>Application for Initiation [cite: 39]</h3>
-        <p>To apply, you must submit a clear photo of your eyes for an Aura reading[cite: 41].</p>
-        <p style="font-size: 0.8rem; color: var(--gold);">Only 5 students accepted per month.</p>
-        <button onclick="togglePopup()" style="background: var(--gold); border: none; padding: 10px 20px; cursor: pointer;">I UNDERSTAND</button>
+    <div id="popup-overlay">
+        <div class="popup-content">
+            <h2>Application for Initiation</h2>
+            <p style="color: var(--text-gray); margin-bottom: 20px;">
+                Guru-ji accepts only <strong>5 students per month</strong> for one-to-one sacred work. 
+                This is not a purchase; it is a destiny check.
+            </p>
+            <p style="color: var(--gold); font-weight: bold; margin-bottom: 20px;">
+                Required for Step 1: An Energy Check (Name, Age, and clear photo of your eyes for Aura reading).
+            </p>
+            <a href="https://wa.me/YOUR_PHONE_NUMBER?text=I+seek+initiation+into+the+Amrit+Dwar+Portal" class="btn-wa-apply">START MY ENERGY CHECK</a>
+            <br><br>
+            <a href="javascript:void(0)" onclick="closePopup()" style="color: #444; font-size: 0.8rem; text-decoration: none;">CLOSE PORTAL</a>
+        </div>
     </div>
 
     <script>
-        function togglePopup() {
-            const popup = document.getElementById('applyPopup');
-            const overlay = document.getElementById('overlay');
-            const display = popup.style.display === 'block' ? 'none' : 'block';
-            popup.style.display = display;
-            overlay.style.display = display;
-        }
+        function openPopup() { document.getElementById('popup-overlay').style.display = 'flex'; }
+        function closePopup() { document.getElementById('popup-overlay').style.display = 'none'; }
     </script>
 </body>
 </html>
