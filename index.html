@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amrit Dwar | The Forbidden Portal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Raleway:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #d4af37;
+            --deep-black: #0a0a0a;
+            --blood-red: #800000;
+            --text-gray: #b0b0b0;
+        }
+
+        body {
+            margin: 0;
+            background-color: var(--deep-black);
+            color: white;
+            font-family: 'Raleway', sans-serif;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 { font-family: 'Cinzel', serif; letter-spacing: 2px; color: var(--gold); }
+
+        /* Scarcity Marquee */
+        .news-ticker {
+            background: var(--blood-red);
+            color: white;
+            padding: 10px 0;
+            overflow: hidden;
+            white-space: nowrap;
+            font-size: 0.9rem;
+            font-weight: bold;
+            border-bottom: 1px solid var(--gold);
+        }
+        .ticker-content {
+            display: inline-block;
+            animation: marquee 30s linear infinite;
+        }
+        @keyframes marquee {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 90vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: radial-gradient(circle, #1a1a1a 0%, #000 100%);
+            padding: 20px;
+        }
+        .hero h1 { font-size: 3rem; margin-bottom: 10px; }
+        .hero p { max-width: 600px; color: var(--text-gray); line-height: 1.6; }
+
+        /* Floating Buttons */
+        .floating-apply {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--gold);
+            color: black;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-weight: bold;
+            text-decoration: none;
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
+            z-index: 1000;
+            transition: 0.3s;
+        }
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            background: #25D366;
+            color: white;
+            padding: 15px;
+            border-radius: 50%;
+            z-index: 1000;
+            box-shadow: 0 0 15px rgba(0,0,0,0.5);
+        }
+
+        /* Sections */
+        .section { padding: 80px 10%; border-bottom: 1px solid #222; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 40px; }
+        .card {
+            background: #111;
+            padding: 30px;
+            border: 1px solid #222;
+            transition: 0.4s;
+            cursor: pointer;
+        }
+        .card:hover { border-color: var(--gold); transform: translateY(-5px); }
+
+        /* Popup */
+        #applyPopup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #111;
+            padding: 40px;
+            border: 2px solid var(--gold);
+            z-index: 2000;
+            width: 90%;
+            max-width: 500px;
+        }
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.9);
+            z-index: 1999;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="news-ticker">
+        <div class="ticker-content">
+            ⚠️ CONFIDENTIAL: 2 Slots remaining for February Initiation  | New Manuscript added to Secret Library | Guru-ji accepting Energy Checks now [cite: 41] | WARNING: Do not share with the uninitiated [cite: 2]
+        </div>
+    </div>
+
+    <section class="hero">
+        <h1>AMRIT DWAR</h1>
+        <p>The science of Divine Magnetism. Modern life has "muted" your biological divinity. This is the key to unmuting it[cite: 7]. The portal is open[cite: 46]. Do you have the courage to step in? [cite: 48]</p>
+        <div style="margin-top: 30px;">
+            <a href="#courses" style="color: var(--gold); text-decoration: none; margin-right: 20px;">[ BROWSE COURSES ]</a>
+            <a href="#library" style="color: var(--gold); text-decoration: none;">[ SECRET LIBRARY ]</a>
+        </div>
+    </section>
+
+    <section class="section" id="courses">
+        <h2>Live Initiations</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>One-to-One Secret Rituals [cite: 30]</h3>
+                <p>Not classes, but Energy Alchemies. Includes Shaktipat and Kundalini ignition[cite: 30, 33].</p>
+            </div>
+            <div class="card">
+                <h3>Karmic Womb Cleansing [cite: 32]</h3>
+                <p>Deleting energetic "imprints" of previous partners to restore your magnetic signal[cite: 32].</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="library">
+        <h2>The Forbidden Library</h2>
+        <p>Explore 29,000+ secret knowledge-based spiritual books from forgotten lineages.</p>
+        <div class="grid">
+            <div class="card"><h4>Tantra & Alchemy</h4></div>
+            <div class="card"><h4>Vedic Bio-Hacking</h4></div>
+            <div class="card"><h4>Shadow Integration</h4></div>
+        </div>
+    </section>
+
+    <a href="https://wa.me/YOURNUMBER" class="whatsapp-btn">💬</a>
+    <a href="javascript:void(0)" class="floating-apply" onclick="togglePopup()">APPLY NOW</a>
+
+    <div class="overlay" id="overlay" onclick="togglePopup()"></div>
+    <div id="applyPopup">
+        <h3>Application for Initiation [cite: 39]</h3>
+        <p>To apply, you must submit a clear photo of your eyes for an Aura reading[cite: 41].</p>
+        <p style="font-size: 0.8rem; color: var(--gold);">Only 5 students accepted per month.</p>
+        <button onclick="togglePopup()" style="background: var(--gold); border: none; padding: 10px 20px; cursor: pointer;">I UNDERSTAND</button>
+    </div>
+
+    <script>
+        function togglePopup() {
+            const popup = document.getElementById('applyPopup');
+            const overlay = document.getElementById('overlay');
+            const display = popup.style.display === 'block' ? 'none' : 'block';
+            popup.style.display = display;
+            overlay.style.display = display;
+        }
+    </script>
+</body>
+</html>
