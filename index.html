@@ -3,208 +3,103 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AMRIT DWAR | THE AKASHIC VAULT - 28,284 Forbidden Manuscripts</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Tiro+Devanagari+Hindi&family=Raleway:wght@300;700&family=Libre+Baskerville:ital@1&display=swap" rel="stylesheet">
+    <title>AMRIT DWAR | THE AKASHIC VAULT</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Tiro+Devanagari+Hindi&family=Raleway:wght@300;700&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --gold: #d4af37;
-            --deep-black: #050505;
-            --blood: #7b0000;
-            --glow: rgba(212,175,55,0.6);
-        }
-
+        :root { --gold: #d4af37; --deep-black: #050505; --blood: #7b0000; --glow: rgba(212,175,55,0.6); }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { background-color: var(--deep-black); color: #fff; font-family: 'Raleway', sans-serif; overflow-x: hidden; scroll-behavior: smooth; }
-        h1, h2, h3, h4 { font-family: 'Cinzel', serif; color: var(--gold); letter-spacing: 2px; text-transform: uppercase; }
-        .hindi { font-family: 'Tiro Devanagari Hindi', serif; font-weight: 400; }
+        body { background: var(--deep-black); color: #fff; font-family: 'Raleway', sans-serif; line-height: 1.6; }
         
-        /* THE MASSIVE GLOWING HEADLINE */
-        .master-headline {
-            padding: 160px 5% 60px 5%;
-            text-align: center;
-            background: radial-gradient(circle, #1a1a1a 0%, #050505 100%);
-        }
-        .master-headline h1 {
-            font-size: clamp(3rem, 12vw, 7.5rem);
-            font-weight: 900;
-            text-shadow: 0 0 30px var(--glow), 0 0 60px rgba(212,175,55,0.2);
-            line-height: 0.9;
-        }
-        .sub-headline {
-            font-family: 'Tiro Devanagari Hindi', serif;
-            font-size: clamp(1.2rem, 4vw, 2.5rem);
-            color: #fff; margin-top: 25px; letter-spacing: 2px; opacity: 0.9;
-        }
-
-        /* TICKER */
-        .ticker-wrap { background: var(--blood); border-bottom: 1px solid var(--gold); padding: 10px 0; position: fixed; top: 0; width: 100%; z-index: 1000; }
-        .ticker { display: inline-block; white-space: nowrap; animation: marquee 40s linear infinite; font-weight: bold; font-size: 0.8rem; }
-        @keyframes marquee { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
-
-        /* MANUSCRIPT STYLING */
-        .manuscript-section { max-width: 850px; margin: 0 auto; padding: 80px 25px; line-height: 1.8; color: #ccc; }
-        .chapter-title { margin-top: 50px; border-bottom: 1px solid #333; padding-bottom: 10px; color: var(--gold); }
-        .confidential-tag { background: var(--blood); color: #fff; padding: 5px 15px; font-size: 0.7rem; font-weight: bold; display: inline-block; margin-bottom: 20px; }
-        .quote { font-family: 'Libre+Baskerville', serif; font-style: italic; color: #888; border-left: 2px solid var(--gold); padding-left: 20px; margin: 25px 0; }
-
-        /* SEARCH INTERFACE */
-        .vault-search { background: #0a0a0a; padding: 60px 10%; text-align: center; border-top: 1px solid #1a1a1a; }
-        .search-container { max-width: 700px; margin: 30px auto; position: relative; }
-        input { width: 100%; padding: 20px; background: #000; border: 1px solid var(--gold); color: var(--gold); font-family: 'Raleway'; outline: none; }
-        #results { margin-top: 10px; font-size: 0.8rem; color: var(--blood); display: none; }
+        /* HEADLINE */
+        .master-headline { padding: 150px 5% 50px; text-align: center; background: radial-gradient(circle, #1a1a1a 0%, #050505 100%); }
+        .master-headline h1 { font-family: 'Cinzel'; font-size: clamp(3rem, 10vw, 7rem); color: var(--gold); text-shadow: 0 0 30px var(--glow); line-height: 0.9; }
+        
+        /* SEARCH BOX */
+        .search-section { padding: 50px 10%; background: #0a0a0a; text-align: center; border-top: 1px solid #222; }
+        .search-box { width: 100%; max-width: 600px; padding: 15px; background: #000; border: 1px solid var(--gold); color: var(--gold); font-size: 1.1rem; margin-bottom: 10px; }
+        .search-results-preview { height: 100px; overflow: hidden; color: #444; font-size: 0.8rem; border: 1px dashed #333; padding: 10px; margin-top: 10px; display: none; }
 
         /* ENERGY NOTICE */
-        .energy-notice {
-            max-width: 950px; margin: 40px auto; padding: 35px; border: 1px solid var(--blood);
-            background: rgba(123, 0, 0, 0.05); text-align: center; font-size: 0.95rem; line-height: 1.6;
-        }
-        .energy-notice strong { color: var(--gold); text-transform: uppercase; }
+        .energy-notice { max-width: 900px; margin: 40px auto; padding: 30px; border: 1px solid var(--blood); background: rgba(123, 0, 0, 0.1); text-align: center; }
 
         /* PRICING GRID */
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; padding: 0 10%; margin-top: 50px; }
-        .card { background: #0a0a0a; border: 1px solid #222; padding: 45px; transition: 0.4s; text-align: center; position: relative; overflow: hidden; }
-        .card:hover { border-color: var(--gold); box-shadow: 0 0 25px var(--glow); }
-        .price { font-size: 3rem; font-family: 'Cinzel'; color: var(--gold); margin: 25px 0; }
-        .card.popular { border: 2px solid var(--gold); transform: scale(1.05); z-index: 2; }
-
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; padding: 0 10%; margin-bottom: 100px; }
+        .card { background: #0d0d0d; border: 1px solid #222; padding: 40px; text-align: center; transition: 0.3s; }
+        .card:hover { border-color: var(--gold); transform: translateY(-5px); }
+        .card.popular { border: 2px solid var(--gold); box-shadow: 0 0 30px var(--glow); }
+        .price { font-size: 3rem; font-family: 'Cinzel'; color: var(--gold); margin: 20px 0; }
+        
         /* BUTTONS */
-        .btn { display: inline-block; padding: 18px 35px; background: var(--gold); color: #000; text-decoration: none; font-weight: bold; font-family: 'Cinzel'; margin-top: 25px; width: 100%; border: none; cursor: pointer; transition: 0.3s; }
-        .btn:hover { background: #fff; box-shadow: 0 0 20px #fff; }
+        .btn { display: block; padding: 15px; background: var(--gold); color: #000; text-decoration: none; font-weight: bold; font-family: 'Cinzel'; margin-top: 20px; border-radius: 2px; }
         .btn-wa { background: var(--blood); color: #fff; }
 
-        .service-list { text-align: left; font-size: 0.85rem; color: #888; margin: 25px 0; list-style: none; }
-        .service-list li { margin-bottom: 10px; }
-        .service-list li::before { content: "◈ "; color: var(--gold); }
+        /* DOWNLOAD LINKS */
+        .download-footer { text-align: center; padding: 50px; background: #000; border-top: 1px solid #222; }
+        .download-footer a { color: var(--gold); text-decoration: none; margin: 0 20px; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; }
 
-        .wa-float { position: fixed; bottom: 30px; left: 30px; background: #25D366; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; z-index: 999; box-shadow: 0 0 15px rgba(0,0,0,0.5); }
+        .wa-float { position: fixed; bottom: 20px; left: 20px; background: #25D366; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; z-index: 1000; }
     </style>
 </head>
 <body>
 
-    <div class="ticker-wrap">
-        <div class="ticker">
-            ⚠️ CONFIDENTIAL: 5,000-YEAR-OLD TANTRIC SECRETS DETECTED | FEBRUARY INITIATION: 2 SLOTS REMAINING | 28,284 MANUSCRIPTS INDEXED | AMRIT DWAR VAULT ACTIVE
+    <section class="master-headline">
+        <h1>THE AKASHIC VAULT</h1>
+        <div class="hindi" style="font-size: 2rem; color: #fff; margin-top: 20px;">अमृतद्वार: दिव्य सम्मोहन</div>
+    </section>
+
+    <section class="search-section">
+        <h3 style="color: var(--gold); margin-bottom: 20px;">SEARCH 28,284 MANUSCRIPTS</h3>
+        <input type="text" class="search-box" id="userInput" placeholder="Search Lal Kitab, Tantra, Healing..." onkeyup="showPreview()">
+        <div id="previewArea" class="search-results-preview">
+            Searching Database... <br>
+            <span style="filter: blur(4px);">Matching Entry: [RESTRICTED MANUSCRIPT]</span><br>
+            <span style="color: var(--blood); font-weight: bold;">[!] ACCESS DENIED: Energy Exchange Required</span>
+        </div>
+    </section>
+
+    <div class="energy-notice">
+        <p><strong>⚠️ NOTICE:</strong> Dakshina (Fees) below is for <strong>Library Access Only</strong>.</p>
+        <p>For 3rd Eye, Kundalini, or Personal Diksha, charges are extra. Contact via WhatsApp.</p>
+    </div>
+
+    <div class="grid">
+        <div class="card">
+            <h3>1 Year Access</h3>
+            <div class="price">₹999</div>
+            <p style="color: #666;">28,284 Books<br>Standard Vault</p>
+            <a href="https://razorpay.me/@avntsonline" class="btn">PAY DAKSHINA</a>
+        </div>
+        <div class="card popular">
+            <h3 style="color: var(--gold);">LIFETIME ACCESS</h3>
+            <div class="price">₹1,999</div>
+            <p>Eternal Vault Updates<br>Priority Support</p>
+            <a href="https://razorpay.me/@avntsonline" class="btn">UNLOCK FOREVER</a>
+        </div>
+        <div class="card">
+            <h3>PERSONAL SADHANA</h3>
+            <div class="price" style="font-size: 1.5rem;">CONSULTATION</div>
+            <p>3rd Eye / Diksha<br>Meditation Classes</p>
+            <a href="https://wa.me/message/ITZRP5ZVP25LP1" class="btn btn-wa">INQUIRE NOW</a>
         </div>
     </div>
 
-    <section class="master-headline">
-        <h1>THE AKASHIC VAULT</h1>
-        <div class="sub-headline">अमृतद्वार: दिव्य चुंबकत्व और शक्ति का द्वार</div>
-        <p style="margin-top: 40px; font-size: 0.9rem; color: #666; letter-spacing: 3px;">BY DR. ROY'S GURUKUL</p>
-    </section>
-
-    <section class="manuscript-section" id="manuscript">
-        <div class="confidential-tag">⚠️ FORBIDDEN MANUSCRIPT PREVIEW</div>
-        
-        <h2 class="hindi">अमृतद्वार: सम्मोहन और शक्ति का गुप्त विज्ञान</h2>
-        <p class="quote">"This document contains 5,000-year-old Tantric secrets combined with modern Bio-Hacking. Read in private."</p>
-        
-        <p>You are not reading this by accident. You were led here because your inner Goddess is starving. Modern life has "muted" your biological divinity. This book is the key to unmuting it.</p>
-        
-        <div class="chapter-title"><h3>Chapter 1: The Withered Lotus</h3></div>
-        <p class="hindi">आज 95% स्त्रियाँ 'सूखी ऊर्जा' (Dry Energy) के साथ जी रही हैं। जब आपके शरीर का 'अमृतद्वार' ब्लॉक हो जाता है, तो आपका 'फेरोमोनल सिग्नल' मर जाता है।</p>
-        
-        <div class="chapter-title"><h3>Chapter 2: The Science of 'Amrit'</h3></div>
-        <p>What Tantra calls <strong>"Amrit Gandha,"</strong> modern science calls <strong>"Chemosignals."</strong> Ancient Queens used this to influence the hormonal levels of men around them instantly.</p>
-
-        <div class="chapter-title"><h3>Chapter 3: The 3-Level Protocol</h3></div>
-        <p><strong>Level 1: Purification</strong> (Neem, Tulsi, Rose).<br>
-           <strong>Level 2: Alchemy</strong> (Ashwagandha + Shatavari).<br>
-           <strong>Level 3: Root Mudra</strong> (The "YAM" Mantra). Awakening the Kundalini Spark.</p>
-
-        <div class="chapter-title"><h3>Chapter 4: The Dark Truth</h3></div>
-        <p class="hindi">इंटरनेट से मंत्र सीखना वैसा ही है जैसे अंधेरे कमरे में बिजली के नंगे तारों को छूना। बिना 'गुरु' के ये क्रियाएं विष बन सकती हैं।</p>
-
-        <div class="chapter-title"><h3>Chapter 5: Sacred Initiation</h3></div>
-        <p>Our One-to-One rituals include Instant Third Eye Activation and Karmic Womb Cleansing to delete the imprints of previous partners.</p>
-
-        <div class="chapter-title"><h3>Chapter 6: The Elite Circle</h3></div>
-        <p class="hindi">गुरुजी महीने में केवल 5 शिष्यों को ही व्यक्तिगत दीक्षा (Personal Initiation) देते हैं।</p>
-    </section>
-
-    <section class="vault-search">
-        <h2>SEARCH THE AKASHIC DATABASE</h2>
-        <p style="font-size: 0.8rem; color: #555; margin-bottom: 20px;">Direct access to 28,284 titles including Lal Kitab, Veda, and Occult Grimoires.</p>
-        <div class="search-container">
-            <input type="text" id="bookSearch" placeholder="Type book name (e.g. 'Tarot', 'Sadhana')...">
-            <div id="results">🔍 ANALYZING ARCHIVES... <br> [!] ACCESS DENIED: ENERGY EXCHANGE REQUIRED TO VIEW FULL DATABASE</div>
-        </div>
-    </section>
-
-    <section style="background: #000; padding-bottom: 100px;">
-        
-        <div class="energy-notice">
-            <p>
-                <strong>⚠️ IMPORTANT DISCLOSURE:</strong> The energy exchange (Dakshina) listed below is strictly for 
-                <strong>Digital Library Access (28,284 Volumes)</strong>. 
-            </p>
-            <p style="margin-top: 15px;">
-                Personal spiritual services including <strong>Diksha, 3rd Eye Activation, Kundalini Awakening, and Secret Tantra</strong> are handled individually. Extra charges apply for these high-voltage ritualistic services.
-            </p>
-        </div>
-
-        <div class="grid">
-            <div class="card">
-                <h3>Vessel Access</h3>
-                <p>1 Year Digital Library</p>
-                <div class="price">₹999</div>
-                <ul class="service-list">
-                    <li>28,284 Restricted Manuscripts</li>
-                    <li>Full Numbered Registry</li>
-                    <li>Telegram Vault Access</li>
-                </ul>
-                <a href="https://razorpay.me/@avntsonline" class="btn">PAY DAKSHINA</a>
-            </div>
-
-            <div class="card popular">
-                <div style="background: var(--gold); color: #000; font-size: 0.7rem; font-weight: bold; padding: 5px; position: absolute; top: 15px; width: 100%; left: 0;">MOST RECOMMENDED</div>
-                <h3 style="margin-top: 20px;">Eternal Adept</h3>
-                <p>Lifetime Vault Access</p>
-                <div class="price">₹1,999</div>
-                <ul class="service-list">
-                    <li>Lifetime Book Updates</li>
-                    <li>New Categorized Knowledge Map</li>
-                    <li>Priority Aura Assessment</li>
-                </ul>
-                <a href="https://razorpay.me/@avntsonline" class="btn" style="background: #fff;">GET LIFETIME ACCESS</a>
-            </div>
-
-            <div class="card" style="border: 1px solid var(--blood);">
-                <h3>Personal Sadhana</h3>
-                <p>Advanced Transmissions</p>
-                <div class="price" style="font-size: 1.5rem; color: #fff;">CONSULTATION</div>
-                <ul class="service-list">
-                    <li>3rd Eye / Kundalini Activation</li>
-                    <li>One-to-One Shaktipat</li>
-                    <li>Secret Tantra Classes</li>
-                </ul>
-                <a href="https://wa.me/message/ITZRP5ZVP25LP1?text=I+seek+Personal+Initiation+Details" class="btn btn-wa">CONTACT FOR SERVICES</a>
-            </div>
-        </div>
-
-        <div style="text-align: center; margin-top: 80px;">
-            <p class="hindi" style="color: #444; margin-bottom: 20px;">डाउनलोड करें: पुस्तकालय सूची</p>
-            <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
-                <a href="Amrit_Dwar_Numbered_Index.pdf" download style="color: var(--gold); text-decoration: none; font-size: 0.8rem; border: 1px solid #333; padding: 10px 20px;">📥 MASTER NUMBERED INDEX</a>
-                <a href="Amrit_Dwar_Categorized_Index.txt" download style="color: var(--gold); text-decoration: none; font-size: 0.8rem; border: 1px solid #333; padding: 10px 20px;">📜 NEW CATEGORIZED MAP</a>
-            </div>
-        </div>
-    </section>
-
-    <footer style="padding: 60px 10%; text-align: center; color: #222; font-size: 0.7rem; border-top: 1px solid #111;">
-        <p>© 2026 AMRIT DWAR | DR. ROY'S GURUKUL | THE SECRET SCRIPT NETWORK</p>
+    <footer class="download-footer">
+        <a href="Amrit_Dwar_Numbered_Index.txt" download>📥 Master Numbered Index</a>
+        <a href="Amrit_Dwar_Categorized_Index.txt" download>📜 New Categorized Map</a>
+        <p style="margin-top: 40px; color: #333; font-size: 0.7rem;">© 2026 AMRIT DWAR | DR. ROY'S GURUKUL</p>
     </footer>
 
     <a href="https://wa.me/message/ITZRP5ZVP25LP1" class="wa-float">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" style="width: 30px;" alt="WhatsApp">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" width="35" alt="WA">
     </a>
 
     <script>
-        document.getElementById('bookSearch').addEventListener('input', function() {
-            const res = document.getElementById('results');
-            if(this.value.length > 2) res.style.display = 'block';
-            else res.style.display = 'none';
-        });
+        function showPreview() {
+            var input = document.getElementById('userInput').value;
+            var area = document.getElementById('previewArea');
+            if(input.length > 2) { area.style.display = 'block'; }
+            else { area.style.display = 'none'; }
+        }
     </script>
 </body>
 </html>
