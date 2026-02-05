@@ -31,48 +31,35 @@
             background-size: cover; background-position: center; background-attachment: fixed;
         }
         .hero h1 { font-size: clamp(3rem, 10vw, 6rem); margin: 20px 0; text-shadow: 0 0 20px var(--gold); }
-        .hero p { max-width: 800px; font-size: 1.2rem; color: #ccc; line-height: 1.6; }
-
-        /* SECTIONS */
-        .section { padding: 100px 10%; border-bottom: 1px solid #1a1a1a; position: relative; }
-        .vault-box { background: rgba(10,10,10,0.9); border: 2px solid var(--gold); padding: 60px; text-align: center; box-shadow: inset 0 0 50px #000; }
-        .vault-stats { font-size: clamp(3rem, 8vw, 5rem); color: var(--gold); font-family: 'Cinzel'; text-shadow: 0 0 20px var(--gold); }
-
-        /* GRID */
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 50px; }
-        .card { background: #0f0f0f; border: 1px solid #222; padding: 30px; transition: 0.4s; position: relative; }
-        .card:hover { border-color: var(--gold); box-shadow: 0 0 30px var(--shadow); transform: translateY(-5px); }
-        .count-badge { position: absolute; top: 10px; right: 15px; color: var(--gold); font-size: 0.7rem; font-weight: bold; }
-        .book-list { font-size: 0.85rem; color: #777; line-height: 1.6; margin: 15px 0; border-top: 1px solid #222; padding-top: 10px; }
-        .lock-overlay { color: var(--blood); font-weight: bold; font-size: 0.7rem; text-transform: uppercase; margin-top: 10px; display: block; }
-
-        /* SEARCH INTERFACE */
-        .search-container { max-width: 700px; margin: 40px auto; position: relative; }
-        input { width: 100%; padding: 20px; background: #000; border: 1px solid var(--gold); color: var(--gold); font-family: 'Raleway'; }
-        .search-btn { position: absolute; right: 10px; top: 10px; background: var(--gold); border: none; padding: 10px 20px; cursor: pointer; font-weight: bold; }
-
-        /* SCROLLING LIST */
-        .scroller-window { height: 150px; overflow: hidden; border: 1px solid #222; background: #050505; position: relative; margin-top: 20px; }
-        .scroller-content { position: absolute; width: 100%; animation: scrollUp 40s linear infinite; padding: 20px; color: #555; font-family: monospace; font-size: 0.8rem; line-height: 2; }
-        @keyframes scrollUp { 0% { top: 100%; } 100% { top: -400%; } }
+        
+        /* PRICING TABLE */
+        .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; max-width: 900px; margin: 40px auto; }
+        .price-card { background: #0a0a0a; border: 1px solid #333; padding: 40px 20px; transition: 0.4s; position: relative; overflow: hidden; }
+        .price-card.popular { border: 2px solid var(--gold); box-shadow: 0 0 20px var(--glow); transform: scale(1.05); }
+        .badge { background: var(--gold); color: #000; font-size: 0.7rem; font-weight: bold; padding: 5px 20px; position: absolute; top: 15px; right: -20px; transform: rotate(45deg); }
+        .price-val { font-size: 2.5rem; color: #fff; margin: 15px 0; font-family: 'Cinzel'; }
+        .price-val span { font-size: 1rem; color: #888; }
 
         /* BUTTONS */
-        .btn-gold { background: var(--gold); color: #000; padding: 18px 45px; text-decoration: none; font-weight: 900; display: inline-block; transition: 0.3s; font-family: 'Cinzel'; border: 2px solid transparent; }
-        .btn-gold:hover { background: #000; color: var(--gold); border-color: var(--gold); box-shadow: 0 0 20px var(--gold); }
-        
-        .float-apply { position: fixed; bottom: 30px; right: 30px; background: var(--gold); color: #000; padding: 15px 30px; font-weight: bold; text-decoration: none; z-index: 999; border: 2px solid #fff; box-shadow: 0 0 20px var(--gold); font-family: 'Cinzel'; }
-        .wa-float { position: fixed; bottom: 30px; left: 30px; background: #25D366; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; z-index: 999; box-shadow: 0 0 15px rgba(0,0,0,0.5); }
+        .btn-gold { background: var(--gold); color: #000; padding: 18px 30px; text-decoration: none; font-weight: 900; display: inline-block; transition: 0.3s; font-family: 'Cinzel'; border: none; cursor: pointer; text-align: center; width: 100%; }
+        .btn-gold:hover { background: #fff; box-shadow: 0 0 20px #fff; }
+        .btn-outline { background: transparent; color: var(--gold); border: 1px solid var(--gold); padding: 15px; text-decoration: none; display: block; margin-top: 10px; font-family: 'Cinzel'; font-size: 0.8rem; }
 
-        /* OVERLAY */
-        .overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.98); z-index: 10000; justify-content: center; align-items: center; }
-        .popup { background: #0a0a0a; border: 1px solid var(--gold); padding: 50px; text-align: center; max-width: 550px; box-shadow: 0 0 50px var(--blood); }
+        .section { padding: 100px 10%; border-bottom: 1px solid #1a1a1a; position: relative; }
+        .wa-float { position: fixed; bottom: 30px; left: 30px; background: #25D366; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; z-index: 999; box-shadow: 0 0 15px rgba(0,0,0,0.5); }
+        .float-apply { position: fixed; bottom: 30px; right: 30px; background: var(--gold); color: #000; padding: 15px 30px; font-weight: bold; text-decoration: none; z-index: 999; border: 2px solid #fff; font-family: 'Cinzel'; }
+
+        /* VAULT SCROLLER */
+        .scroller-window { height: 120px; overflow: hidden; border: 1px solid #222; background: #050505; position: relative; margin: 30px 0; }
+        .scroller-content { position: absolute; width: 100%; animation: scrollUp 40s linear infinite; color: #444; font-family: monospace; font-size: 0.8rem; padding: 10px; }
+        @keyframes scrollUp { 0% { top: 100%; } 100% { top: -500%; } }
     </style>
 </head>
 <body>
 
     <div class="ticker-wrap">
         <div class="ticker">
-            ⚠️ CONFIDENTIAL: 28,284 RESTRICTED MANUSCRIPTS INDEXED | LAST ENTRY: Lemegeton by Mitch Henson.pdf | अमृत द्वार खुला है | ENERGY CHECK REQUIRED FOR ALL INITIATES
+            ⚠️ VAULT STATUS: 28,284 RESTRICTED MANUSCRIPTS INDEXED | ACCESS OPEN FOR CLEARED VESSELS | JOIN DR. ROY'S GURUKUL DIGITAL VAULT
         </div>
     </div>
 
@@ -81,124 +68,68 @@
         <p class="hindi" style="font-size: 1.5rem; letter-spacing: 5px; color: var(--gold); margin-top: 20px;">|| ॐ अमृत द्वार ||</p>
         <h1>AMRIT DWAR</h1>
         <p class="hindi">ब्रह्मांड ने आपको चुना है। आपकी आंतरिक देवी भूखी है।</p>
-        <p style="margin-top: 15px;">Your modern life has "muted" your biological divinity. Reclaim your pheromonal power through the forbidden science of <strong>Divine Magnetism</strong>.</p>
-        <a href="#apply" class="btn-gold" style="margin-top: 40px;">UNMUTE YOUR DIVINITY</a>
+        <p style="margin-top: 20px; max-width: 700px;">Unlock 28,284 Manuscripts for less than ₹3/day. Unmute your biological divinity through the science of Divine Magnetism.</p>
+        <a href="#pricing" class="btn-gold" style="margin-top: 40px; width: auto;">VIEW SACRED EXCHANGE</a>
     </section>
 
-    <section class="section" style="text-align: center; background: #000;">
-        <h2 class="hindi">कड़वा सच (The Dark Truth)</h2>
-        <div style="max-width: 800px; margin: 30px auto;">
-            <p class="hindi" style="font-size: 1.8rem; color: #fff; line-height: 1.4;">"बिना गुरु के तंत्र का अभ्यास करना नंगे हाथों से हाई-वोल्टेज बिजली पकड़ने जैसा है।"</p>
-            <p style="font-style: italic; color: var(--gold); margin-top: 15px;">"Practicing Tantra without a Guru is like handling high-voltage electricity with bare hands."</p>
+    <section class="section" id="pricing" style="text-align: center; background: #000;">
+        <h2 class="hindi">ऊर्जा विनिमय (The Sacred Exchange)</h2>
+        <p style="color: #888; margin-top: 10px;">Select your level of initiation to the Akashic Vault.</p>
+
+        <div class="pricing-grid">
+            <div class="price-card">
+                <h3>Vessel Access</h3>
+                <p class="hindi" style="font-size: 0.8rem; color: var(--gold);">1 वर्ष के लिए प्रवेश</p>
+                <div class="price-val">₹999<span>/year</span></div>
+                <ul style="text-align: left; font-size: 0.8rem; color: #888; margin-bottom: 20px; list-style: none;">
+                    <li>✔ 28,284 Manuscripts Access</li>
+                    <li>✔ Standard Telegram Vault</li>
+                    <li>✔ Monthly Book Updates</li>
+                </ul>
+                <a href="https://razorpay.me/@avntsonline" target="_blank" class="btn-gold">PAY DAKSHINA</a>
+                <a href="https://wa.me/message/ITZRP5ZVP25LP1?text=I+have+paid+999+for+1+Year+Access" class="btn-outline">VERIFY ON WHATSAPP</a>
+            </div>
+
+            <div class="price-card popular">
+                <div class="badge">BEST VALUE</div>
+                <h3>Eternal Adept</h3>
+                <p class="hindi" style="font-size: 0.8rem; color: var(--gold);">आजीवन पूर्ण प्रवेश</p>
+                <div class="price-val">₹1,999<span>/lifetime</span></div>
+                <ul style="text-align: left; font-size: 0.8rem; color: #fff; margin-bottom: 20px; list-style: none;">
+                    <li>✔ <strong>Unlimited Lifetime Access</strong></li>
+                    <li>✔ All Forbidden Categories</li>
+                    <li>✔ Priority Aura Reading</li>
+                    <li>✔ Direct Guru Interaction</li>
+                </ul>
+                <a href="https://razorpay.me/@avntsonline" target="_blank" class="btn-gold" style="background: #fff;">GET LIFETIME ACCESS</a>
+                <a href="https://wa.me/message/ITZRP5ZVP25LP1?text=I+seek+Lifetime+Initiation" class="btn-outline">REQUEST INITIATION</a>
+            </div>
         </div>
+        
+        <p style="margin-top: 30px; color: var(--blood); font-weight: bold; font-size: 0.8rem;">[ NOTE: Energy Check via WhatsApp is mandatory after payment ]</p>
     </section>
 
-    <section class="section" id="vault" style="background-image: url('https://images.unsplash.com/photo-1502134249126-9f3755a50d78?auto=format&fit=crop&q=80&w=1920'); background-attachment: fixed; background-size: cover;">
-        <div class="vault-box">
-            <h2>THE AKASHIC VAULT</h2>
-            <div class="vault-stats">28,284</div>
-            <p class="hindi" style="font-size: 1.5rem;">गुप्त ज्ञान की पुस्तकों का महासंग्रह</p>
-            
-            <div class="search-container">
-                <input type="text" id="bookSearch" placeholder="Search for a title (e.g. 'Lal Kitab', 'Black Magic')...">
-                <button class="search-btn" onclick="alert('ACCESS DENIED: Energy Clearance required for full database indexing.')">SEARCH</button>
-                <div id="results" style="display:none; background:#111; padding:15px; border:1px solid var(--blood); margin-top:5px; font-size:0.8rem;"></div>
-            </div>
-
-            <div class="grid">
-                <div class="card">
-                    <span class="count-badge">2,432 FILES</span>
-                    <h3>ASTRO & JYOTISH</h3>
-                    <div class="book-list">• Lal Kitab Original<br>• BPHS (Sanjay Rath)<br>• Predictive Astrology</div>
-                    <span class="lock-overlay">🔒 [LEVEL 1 ACCESS]</span>
-                </div>
-                <div class="card">
-                    <span class="count-badge">765 FILES</span>
-                    <h3>THE DARK ARTS</h3>
-                    <div class="book-list">• Tarot Spell Books<br>• Voodoo Rituals<br>• Grimoires & Occult</div>
-                    <span class="lock-overlay">🔒 [LEVEL 3 ACCESS]</span>
-                </div>
-                <div class="card">
-                    <span class="count-badge">696 FILES</span>
-                    <h3>TANTRIC RITES</h3>
-                    <div class="book-list">• Secrets of Yantra<br>• Mantra Shakti Manuals<br>• Vigyan Bhairav</div>
-                    <span class="lock-overlay">🔒 [INITIATION REQUIRED]</span>
-                </div>
-                <div class="card">
-                    <span class="count-badge">22,500+ FILES</span>
-                    <h3>GENERAL SPIRIT</h3>
-                    <div class="book-list">• Success Secrets<br>• Healing & Ayurveda<br>• Alchemy Texts</div>
-                    <span class="lock-overlay">🔒 [GATEWAY OPEN]</span>
-                </div>
-            </div>
-
+    <section class="section" style="background: #050505;">
+        <div style="text-align: center;">
+            <h2>THE VAULT REGISTRY</h2>
             <div class="scroller-window">
                 <div class="scroller-content">
                     1. Lemegeton - Mitch Henson <br> 2. BPHS Complete - Parasara <br> 3. Shams al-Ma'arif <br> 4. Lal Kitab 1952 <br> 5. Secrets of Yantra <br> 6. Tarot Spell Book <br> 7. Kundalini Tantra - Satyananda <br> 8. The Power of Now <br> 9. Astral Voyages <br> 10. Ancient Nadi Sutras... (28,274 more entries)
                 </div>
             </div>
-
-            <div style="margin-top: 50px;">
-                <p class="hindi" style="margin-bottom: 15px;">पुस्तकालय सूची डाउनलोड करें (Entry #1 to #28,284)</p>
-                <a href="Amrit_Dwar_Numbered_Index.pdf" download class="btn-gold" style="background:#222; color:var(--gold); border:1px solid var(--gold); font-size:0.8rem;">📥 DOWNLOAD FULL NUMBERED CATALOG (PDF)</a>
-            </div>
+            <a href="Amrit_Dwar_Numbered_Index.pdf" download style="color: var(--gold); text-decoration: none; font-size: 0.8rem;">📥 DOWNLOAD FULL NUMBERED CATALOG (PDF)</a>
         </div>
     </section>
 
-    <section class="section" id="apply" style="text-align: center;">
-        <h2 class="hindi">दीक्षा और पहुंच (Access & Initiation)</h2>
-        <p style="color: #666; margin-top: 10px;">The library is accessible via an <strong>Energy Exchange (Dakshina)</strong>.</p>
-        
-        <div class="grid">
-            <div class="card" style="border-style: dashed; border-color: var(--blood);">
-                <h4 class="hindi">1. Energy Check</h4>
-                <p style="font-size: 0.9rem; margin-top: 10px;">Send Name, Age, and Eye Photo for Aura Assessment via WhatsApp.</p>
-            </div>
-            <div class="card" style="border: 2px solid var(--gold); background: rgba(212,175,55,0.05);">
-                <h4 class="hindi">2. Sacred Exchange</h4>
-                <p style="font-size: 1.2rem; color: #fff; margin: 15px 0;">₹999 / Year</p>
-                <p style="font-size: 0.8rem; color: #888;">Covers Server Maintenance & Lifetime Group Entry.</p>
-            </div>
-            <div class="card" style="border-style: dashed; border-color: var(--blood);">
-                <h4 class="hindi">3. Transmission</h4>
-                <p style="font-size: 0.9rem; margin-top: 10px;">Upon clearance, receive your Encrypted Telegram Vault Invite.</p>
-            </div>
-        </div>
-
-        <a href="https://wa.me/YOUR_PHONE?text=I+seek+Energy+Check+for+Vault+Access" class="btn-gold" style="margin-top: 60px; background: var(--blood); color: #fff;">START YOUR ENERGY CHECK</a>
-    </section>
-
-    <footer style="padding: 60px; text-align: center; background: #000; border-top: 1px solid var(--gold); color: #444;">
-        <p>© 2026 AMRIT DWAR | THE SECRET SCRIPT NETWORK | CONFIDENTIAL</p>
+    <footer style="padding: 60px; text-align: center; background: #000; border-top: 1px solid #222; color: #444;">
+        <p>© 2026 AMRIT DWAR | AVNTS ONLINE | DR. ROY'S GURUKUL</p>
+        <p style="font-size: 0.7rem; margin-top: 10px;">Payment Handle: razorpay.me/@avntsonline</p>
     </footer>
 
-    <a href="https://wa.me/YOUR_PHONE" class="wa-float">
+    <a href="https://wa.me/message/ITZRP5ZVP25LP1" class="wa-float">
         <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" style="width: 35px;" alt="WA">
     </a>
-    <a href="javascript:void(0)" class="float-apply" onclick="openPopup()">APPLY FOR INITIATION</a>
+    <a href="#pricing" class="float-apply">JOIN THE GURUKUL</a>
 
-    <div class="overlay" id="overlay">
-        <div class="popup">
-            <h2 class="hindi">दीक्षा के लिए आवेदन</h2>
-            <p style="margin: 20px 0; color: #ccc;">Accessing the 28,284 forbidden volumes requires a cleared aura. Are you ready for the transmission?</p>
-            <a href="https://wa.me/YOUR_PHONE?text=I+am+ready+for+initiation" class="btn-gold">WHATSAPP GURU-JI</a>
-            <br><br>
-            <a href="javascript:void(0)" onclick="closePopup()" style="color: #444; font-size: 0.8rem; text-decoration: none;">[ RETURN TO PORTAL ]</a>
-        </div>
-    </div>
-
-    <script>
-        function openPopup() { document.getElementById('overlay').style.display='flex'; }
-        function closePopup() { document.getElementById('overlay').style.display='none'; }
-        
-        // Search Simulation
-        document.getElementById('bookSearch').addEventListener('input', function(e) {
-            const res = document.getElementById('results');
-            if(e.target.value.length > 2) {
-                res.style.display = 'block';
-                res.innerHTML = "🔍 Matches found in Catalog... <br><span style='color:var(--gold)'>[!] ENERGY CHECK REQUIRED TO DOWNLOAD FULL RESULTS</span>";
-            } else { res.style.display = 'none'; }
-        });
-    </script>
 </body>
 </html>
