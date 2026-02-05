@@ -4,20 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AMRIT DWAR | अमृत द्वार - 28,284+ Forbidden Manuscripts</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Tiro+Devanagari+Hindi&family=Raleway:ital,wght@0,300;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Tiro+Devanagari+Hindi&family=Raleway:ital,wght@0,300;0,700;1,400&family=Libre+Baskerville:ital@1&display=swap" rel="stylesheet">
     <style>
         :root {
             --gold: #d4af37;
             --deep-black: #050505;
             --blood: #7b0000;
             --glow: rgba(212,175,55,0.3);
-            --shadow: rgba(212, 175, 55, 0.2);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { background-color: var(--deep-black); color: #fff; font-family: 'Raleway', sans-serif; overflow-x: hidden; scroll-behavior: smooth; }
         h1, h2, h3, h4 { font-family: 'Cinzel', serif; color: var(--gold); letter-spacing: 2px; text-transform: uppercase; }
         .hindi { font-family: 'Tiro Devanagari Hindi', serif; font-weight: 400; }
+        .quote { font-family: 'Libre+Baskerville', serif; font-style: italic; color: #aaa; border-left: 2px solid var(--gold); padding-left: 20px; margin: 20px 0; }
 
         /* TICKER */
         .ticker-wrap { background: var(--blood); border-bottom: 1px solid var(--gold); padding: 10px 0; position: fixed; top: 0; width: 100%; z-index: 1000; }
@@ -30,106 +30,104 @@
             background: linear-gradient(rgba(5,5,5,0.7), rgba(5,5,5,0.9)), url('https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?auto=format&fit=crop&q=80&w=1920');
             background-size: cover; background-position: center; background-attachment: fixed;
         }
-        .hero h1 { font-size: clamp(3rem, 10vw, 6rem); margin: 20px 0; text-shadow: 0 0 20px var(--gold); }
-        
-        /* PRICING TABLE */
-        .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; max-width: 900px; margin: 40px auto; }
-        .price-card { background: #0a0a0a; border: 1px solid #333; padding: 40px 20px; transition: 0.4s; position: relative; overflow: hidden; }
-        .price-card.popular { border: 2px solid var(--gold); box-shadow: 0 0 20px var(--glow); transform: scale(1.05); }
-        .badge { background: var(--gold); color: #000; font-size: 0.7rem; font-weight: bold; padding: 5px 20px; position: absolute; top: 15px; right: -20px; transform: rotate(45deg); }
-        .price-val { font-size: 2.5rem; color: #fff; margin: 15px 0; font-family: 'Cinzel'; }
-        .price-val span { font-size: 1rem; color: #888; }
 
+        /* MANUSCRIPT STYLING */
+        .manuscript-section { max-width: 800px; margin: 0 auto; padding: 80px 20px; line-height: 1.8; color: #ddd; }
+        .chapter-title { margin-top: 50px; border-bottom: 1px solid #333; padding-bottom: 10px; color: var(--gold); }
+        .confidential-tag { background: var(--blood); color: #fff; padding: 5px 15px; font-size: 0.7rem; font-weight: bold; display: inline-block; margin-bottom: 20px; }
+
+        /* PRICING */
+        .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; max-width: 900px; margin: 40px auto; }
+        .price-card { background: #0a0a0a; border: 1px solid #333; padding: 40px 20px; text-align: center; transition: 0.4s; }
+        .price-card.popular { border: 2px solid var(--gold); box-shadow: 0 0 20px var(--glow); }
+        
         /* BUTTONS */
         .btn-gold { background: var(--gold); color: #000; padding: 18px 30px; text-decoration: none; font-weight: 900; display: inline-block; transition: 0.3s; font-family: 'Cinzel'; border: none; cursor: pointer; text-align: center; width: 100%; }
         .btn-gold:hover { background: #fff; box-shadow: 0 0 20px #fff; }
-        .btn-outline { background: transparent; color: var(--gold); border: 1px solid var(--gold); padding: 15px; text-decoration: none; display: block; margin-top: 10px; font-family: 'Cinzel'; font-size: 0.8rem; }
 
-        .section { padding: 100px 10%; border-bottom: 1px solid #1a1a1a; position: relative; }
-        .wa-float { position: fixed; bottom: 30px; left: 30px; background: #25D366; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; z-index: 999; box-shadow: 0 0 15px rgba(0,0,0,0.5); }
-        .float-apply { position: fixed; bottom: 30px; right: 30px; background: var(--gold); color: #000; padding: 15px 30px; font-weight: bold; text-decoration: none; z-index: 999; border: 2px solid #fff; font-family: 'Cinzel'; }
-
-        /* VAULT SCROLLER */
-        .scroller-window { height: 120px; overflow: hidden; border: 1px solid #222; background: #050505; position: relative; margin: 30px 0; }
-        .scroller-content { position: absolute; width: 100%; animation: scrollUp 40s linear infinite; color: #444; font-family: monospace; font-size: 0.8rem; padding: 10px; }
-        @keyframes scrollUp { 0% { top: 100%; } 100% { top: -500%; } }
+        .wa-float { position: fixed; bottom: 30px; left: 30px; background: #25D366; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; z-index: 999; }
     </style>
 </head>
 <body>
 
     <div class="ticker-wrap">
         <div class="ticker">
-            ⚠️ VAULT STATUS: 28,284 RESTRICTED MANUSCRIPTS INDEXED | ACCESS OPEN FOR CLEARED VESSELS | JOIN DR. ROY'S GURUKUL DIGITAL VAULT
+            ⚠️ CONFIDENTIAL: 5,000-YEAR-OLD TANTRIC SECRETS DETECTED | FEBRUARY INITIATION: 2 SLOTS REMAINING | AMRIT DWAR VAULT ACTIVE
         </div>
     </div>
 
     <section class="hero">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/4/47/Aum_Sanskrit.svg" style="width: 70px; filter: invert(1) drop-shadow(0 0 10px var(--gold));" alt="Sacred Aum">
-        <p class="hindi" style="font-size: 1.5rem; letter-spacing: 5px; color: var(--gold); margin-top: 20px;">|| ॐ अमृत द्वार ||</p>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/4/47/Aum_Sanskrit.svg" style="width: 60px; filter: invert(1);" alt="Aum">
         <h1>AMRIT DWAR</h1>
-        <p class="hindi">ब्रह्मांड ने आपको चुना है। आपकी आंतरिक देवी भूखी है।</p>
-        <p style="margin-top: 20px; max-width: 700px;">Unlock 28,284 Manuscripts for less than ₹3/day. Unmute your biological divinity through the science of Divine Magnetism.</p>
-        <a href="#pricing" class="btn-gold" style="margin-top: 40px; width: auto;">VIEW SACRED EXCHANGE</a>
+        <p class="hindi" style="font-size: 1.4rem; color: var(--gold);">सम्मोहन और शक्ति का गुप्त विज्ञान</p>
+        <p style="margin-top: 20px; font-size: 0.9rem; letter-spacing: 1px;">THE SCIENCE OF DIVINE MAGNETISM</p>
+        <a href="#manuscript" class="btn-gold" style="margin-top: 40px; width: auto;">OPEN THE FORBIDDEN MANUSCRIPT</a>
     </section>
 
-    <section class="section" id="pricing" style="text-align: center; background: #000;">
-        <h2 class="hindi">ऊर्जा विनिमय (The Sacred Exchange)</h2>
-        <p style="color: #888; margin-top: 10px;">Select your level of initiation to the Akashic Vault.</p>
+    <section class="manuscript-section" id="manuscript">
+        <div class="confidential-tag">⚠️ CONFIDENTIAL MANUSCRIPT</div>
+        <h2 class="hindi">अमृतद्वार: परिचय</h2>
+        <p>You are not reading this by accident. You were led here because your inner Goddess is starving. Modern life—stress, toxins, and digital noise—has "muted" your biological divinity.</p>
+        
+        <div class="chapter-title"><h3>Chapter 1: The Withered Lotus</h3></div>
+        <p class="hindi">आज 95% स्त्रियाँ 'सूखी ऊर्जा' (Dry Energy) के साथ जी रही हैं। जब आपके शरीर का 'अमृतद्वार' ब्लॉक हो जाता है, तो आपका 'फेरोमोनल सिग्नल' मर जाता है।</p>
+        <p>When your sacred center is blocked, you become invisible to the world. You age faster. You lose the spark.</p>
 
+        <div class="chapter-title"><h3>Chapter 2: The Science of 'Amrit'</h3></div>
+        <p>What Tantra calls <strong>"Amrit Gandha,"</strong> modern science calls <strong>"Chemosignals."</strong> Ancient Queens and Yoginis kept their "Womb Energy" active to influence the hormonal levels of those around them instantly.</p>
+
+        <div class="chapter-title"><h3>Chapter 3: The 3-Level Protocol</h3></div>
+        <p><strong>Level 1: Purification.</strong> Wash with Neem, Tulsi, and Rose. Flush out past relationship traumas.<br>
+           <strong>Level 2: Alchemy.</strong> Ashwagandha + Shatavari + Honey. Kill Cortisol, boost Estradiol.<br>
+           <strong>Level 3: Root Mudra.</strong> The "YAM" Mantra. <em>Warning: Awakens Serpent Energy.</em></p>
+
+        <div class="chapter-title"><h3>Chapter 4: The Dark Truth</h3></div>
+        <p class="quote">"A book can give you the map, but only a Guru can take you to the destination."</p>
+        <p class="hindi">बिना 'गुरु' के ये क्रियाएं आपके दिमाग को अस्थिर कर सकती हैं। ऊर्जा (Prana) जब गलत दिशा में बहती है, तो वह 'अमृत' के बजाय 'विष' बन जाती है।</p>
+
+        <div class="chapter-title"><h3>Chapter 5: 1-on-1 Initiation</h3></div>
+        <ul style="list-style: none; padding-left: 0;">
+            <li>👁️ <strong>Third Eye Activation:</strong> The Gaze that commands respect.</li>
+            <li>🍷 <strong>Womb Cleansing:</strong> Deleting energetic imprints of previous partners.</li>
+            <li>⚡ <strong>Shaktipat:</strong> Direct energy transfer.</li>
+        </ul>
+    </section>
+
+    <section class="section" id="pricing" style="background: #000; text-align: center;">
+        <h2 class="hindi">अमृत द्वार प्रवेश (Entrance)</h2>
         <div class="pricing-grid">
             <div class="price-card">
-                <h3>Vessel Access</h3>
-                <p class="hindi" style="font-size: 0.8rem; color: var(--gold);">1 वर्ष के लिए प्रवेश</p>
-                <div class="price-val">₹999<span>/year</span></div>
-                <ul style="text-align: left; font-size: 0.8rem; color: #888; margin-bottom: 20px; list-style: none;">
-                    <li>✔ 28,284 Manuscripts Access</li>
-                    <li>✔ Standard Telegram Vault</li>
-                    <li>✔ Monthly Book Updates</li>
-                </ul>
-                <a href="https://razorpay.me/@avntsonline" target="_blank" class="btn-gold">PAY DAKSHINA</a>
-                <a href="https://wa.me/message/ITZRP5ZVP25LP1?text=I+have+paid+999+for+1+Year+Access" class="btn-outline">VERIFY ON WHATSAPP</a>
+                <h3>1 Year Vault</h3>
+                <div style="font-size: 2rem; margin: 20px 0;">₹999</div>
+                <p style="font-size: 0.8rem; color: #888; margin-bottom: 20px;">Access to 28,284 Manuscripts.<br>Standard Telegram Entry.</p>
+                <a href="https://razorpay.me/@avntsonline" class="btn-gold">PAY DAKSHINA</a>
             </div>
-
             <div class="price-card popular">
-                <div class="badge">BEST VALUE</div>
-                <h3>Eternal Adept</h3>
-                <p class="hindi" style="font-size: 0.8rem; color: var(--gold);">आजीवन पूर्ण प्रवेश</p>
-                <div class="price-val">₹1,999<span>/lifetime</span></div>
-                <ul style="text-align: left; font-size: 0.8rem; color: #fff; margin-bottom: 20px; list-style: none;">
-                    <li>✔ <strong>Unlimited Lifetime Access</strong></li>
-                    <li>✔ All Forbidden Categories</li>
-                    <li>✔ Priority Aura Reading</li>
-                    <li>✔ Direct Guru Interaction</li>
-                </ul>
-                <a href="https://razorpay.me/@avntsonline" target="_blank" class="btn-gold" style="background: #fff;">GET LIFETIME ACCESS</a>
-                <a href="https://wa.me/message/ITZRP5ZVP25LP1?text=I+seek+Lifetime+Initiation" class="btn-outline">REQUEST INITIATION</a>
+                <div class="confidential-tag" style="background: var(--gold); color: #000;">RECOMMENDED</div>
+                <h3>Lifetime Adept</h3>
+                <div style="font-size: 2rem; margin: 20px 0;">₹1,999</div>
+                <p style="font-size: 0.8rem; color: #fff; margin-bottom: 20px;">Eternal Vault Access.<br>Priority Energy Check.<br>Direct Guru Support.</p>
+                <a href="https://razorpay.me/@avntsonline" class="btn-gold">UNLOCK FOREVER</a>
             </div>
         </div>
         
-        <p style="margin-top: 30px; color: var(--blood); font-weight: bold; font-size: 0.8rem;">[ NOTE: Energy Check via WhatsApp is mandatory after payment ]</p>
-    </section>
-
-    <section class="section" style="background: #050505;">
-        <div style="text-align: center;">
-            <h2>THE VAULT REGISTRY</h2>
-            <div class="scroller-window">
-                <div class="scroller-content">
-                    1. Lemegeton - Mitch Henson <br> 2. BPHS Complete - Parasara <br> 3. Shams al-Ma'arif <br> 4. Lal Kitab 1952 <br> 5. Secrets of Yantra <br> 6. Tarot Spell Book <br> 7. Kundalini Tantra - Satyananda <br> 8. The Power of Now <br> 9. Astral Voyages <br> 10. Ancient Nadi Sutras... (28,274 more entries)
-                </div>
-            </div>
-            <a href="Amrit_Dwar_Numbered_Index.pdf" download style="color: var(--gold); text-decoration: none; font-size: 0.8rem;">📥 DOWNLOAD FULL NUMBERED CATALOG (PDF)</a>
+        <div style="margin-top: 50px; background: #0a0a0a; padding: 40px; border: 1px solid var(--blood);">
+            <h3 class="hindi">💎 आवेदन कैसे करें (How to Apply)</h3>
+            <p style="margin: 20px 0; font-size: 0.9rem;">Current Status: 🟢 <strong>2 Slots Available for February</strong></p>
+            <p style="color: #888; font-size: 0.8rem;">1. Send Name & Age.<br>2. Send a clear photo of your eyes (Aura Reading).<br>3. State your intent.</p>
+            <br>
+            <a href="https://wa.me/message/ITZRP5ZVP25LP1" class="btn-gold" style="background: var(--blood); color: #fff; width: auto;">APPLY VIA WHATSAPP</a>
         </div>
     </section>
 
-    <footer style="padding: 60px; text-align: center; background: #000; border-top: 1px solid #222; color: #444;">
-        <p>© 2026 AMRIT DWAR | AVNTS ONLINE | DR. ROY'S GURUKUL</p>
-        <p style="font-size: 0.7rem; margin-top: 10px;">Payment Handle: razorpay.me/@avntsonline</p>
+    <footer style="padding: 40px; text-align: center; border-top: 1px solid #222; font-size: 0.7rem; color: #444;">
+        <p>© 2026 FORBIDDEN TANTRA SECRETS | AMRIT DWAR | DR. ROY'S GURUKUL</p>
+        <a href="Amrit_Dwar_Numbered_Index.pdf" download style="color: var(--gold); text-decoration: none; margin-top: 10px; display: block;">DOWNLOAD 28,284 BOOK INDEX</a>
     </footer>
 
     <a href="https://wa.me/message/ITZRP5ZVP25LP1" class="wa-float">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" style="width: 35px;" alt="WA">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" style="width: 30px;" alt="WhatsApp">
     </a>
-    <a href="#pricing" class="float-apply">JOIN THE GURUKUL</a>
 
 </body>
 </html>
