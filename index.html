@@ -3,179 +3,137 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AMRIT DWAR | अमृत द्वार - The Forbidden Science</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Tiro+Devanagari+Hindi&family=Raleway:ital,wght@0,300;0,700;1,400&display=swap" rel="stylesheet">
+    <title>The Secret Script | 28,284+ Forbidden Volumes</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Tiro+Devanagari+Hindi&family=Raleway:wght@300;600&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --gold: #d4af37;
-            --deep-black: #050505;
-            --blood: #7b0000;
-            --shadow: rgba(212, 175, 55, 0.2);
-        }
+        :root { --gold: #d4af37; --black: #050505; --blood: #600; --glow: rgba(212,175,55,0.3); }
+        body { background: var(--black); color: #fff; font-family: 'Raleway', sans-serif; margin: 0; padding-top: 60px; }
+        
+        /* THE LIVE STATUS BAR */
+        .status-bar { background: #111; border-bottom: 1px solid var(--gold); padding: 15px; text-align: center; position: fixed; top: 0; width: 100%; z-index: 100; }
+        .live-count { color: var(--gold); font-family: 'Cinzel'; font-size: 1.2rem; text-shadow: 0 0 10px var(--gold); }
+        .last-added { font-size: 0.8rem; color: #888; font-style: italic; margin-left: 20px; }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { 
-            background-color: var(--deep-black); 
-            color: #fff; 
-            font-family: 'Raleway', sans-serif; 
-            overflow-x: hidden;
-            scroll-behavior: smooth;
-        }
+        /* HERO */
+        .vault-hero { padding: 100px 5%; text-align: center; background: radial-gradient(circle, #1a1a1a 0%, #050505 100%); border-bottom: 1px solid #222; }
+        h1 { font-family: 'Cinzel'; font-size: 3.5rem; color: var(--gold); margin-bottom: 10px; }
+        .hindi { font-family: 'Tiro Devanagari Hindi'; font-size: 1.4rem; color: #ccc; }
 
-        h1, h2, h3 { font-family: 'Cinzel', serif; color: var(--gold); letter-spacing: 3px; text-transform: uppercase; }
-        .hindi { font-family: 'Tiro Devanagari Hindi', serif; font-weight: 400; }
+        /* SEARCH INTERFACE */
+        .search-container { max-width: 800px; margin: -30px auto 50px auto; position: relative; }
+        input { width: 100%; padding: 20px; background: #000; border: 1px solid var(--gold); color: var(--gold); font-size: 1.1rem; }
+        .search-btn { position: absolute; right: 10px; top: 10px; background: var(--gold); border: none; padding: 10px 20px; cursor: pointer; font-weight: bold; }
 
-        /* HEADER NEWS TICKER */
-        .ticker-wrap { background: var(--blood); border-bottom: 1px solid var(--gold); padding: 10px 0; position: fixed; top: 0; width: 100%; z-index: 1000; }
-        .ticker { display: inline-block; white-space: nowrap; animation: marquee 40s linear infinite; font-weight: bold; font-size: 0.8rem; color: #fff; }
-        @keyframes marquee { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
+        /* CATEGORY GRID */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; padding: 0 10%; }
+        .cat-card { background: #0a0a0a; border: 1px solid #222; padding: 30px; transition: 0.3s; position: relative; }
+        .cat-card:hover { border-color: var(--gold); box-shadow: 0 0 20px var(--glow); }
+        .count-badge { position: absolute; top: 10px; right: 15px; color: var(--gold); font-size: 0.7rem; font-weight: bold; }
+        h3 { color: var(--gold); font-family: 'Cinzel'; margin-bottom: 10px; border-bottom: 1px solid #333; padding-bottom: 10px; }
+        .book-list { font-size: 0.8rem; color: #777; line-height: 1.6; }
 
-        /* HERO SECTION WITH SACRED IMAGE background */
-        .hero { 
-            height: 100vh; 
-            display: flex; 
-            flex-direction: column; 
-            justify-content: center; 
-            align-items: center; 
-            text-align: center; 
-            padding: 0 10%; 
-            background: linear-gradient(rgba(5,5,5,0.8), rgba(5,5,5,0.8)), 
-                        url('https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?auto=format&fit=crop&q=80&w=1920'); /* Sacred Golden Lotus vibe */
-            background-size: cover;
-            background-position: center;
-            border-bottom: 2px solid var(--gold);
-        }
-        .hero h1 { font-size: clamp(3rem, 10vw, 6rem); margin: 20px 0; text-shadow: 0 0 20px var(--gold); }
-        .hero p { max-width: 800px; font-size: 1.2rem; color: #ccc; line-height: 1.8; }
+        /* DARK PSYCHOLOGY OVERLAY */
+        .lock-overlay { color: var(--blood); font-weight: bold; font-size: 0.7rem; text-transform: uppercase; margin-top: 15px; }
 
-        /* THE GAZE SECTION */
-        .section { padding: 100px 10%; position: relative; border-bottom: 1px solid #1a1a1a; }
-        .eye-image { 
-            width: 150px; 
-            filter: sepia(1) saturate(2) hue-rotate(340deg); 
-            margin-bottom: 30px;
-            opacity: 0.8;
-        }
-
-        /* CARDS & BORDERS */
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; margin-top: 50px; }
-        .card { 
-            background: rgba(15,15,15,0.9); 
-            border: 1px solid #222; 
-            padding: 40px; 
-            transition: 0.4s; 
-            position: relative;
-            background-image: url('https://www.transparenttextures.com/patterns/dark-matter.png');
-        }
-        .card:hover { 
-            border-color: var(--gold); 
-            box-shadow: 0 0 30px var(--shadow); 
-            transform: translateY(-10px); 
-        }
-        .card h3 { margin-bottom: 15px; font-size: 1.4rem; border-bottom: 1px solid var(--gold); display: inline-block; padding-bottom: 5px; }
-
-        /* VAULT STATS */
-        .vault-stats { font-size: 4rem; color: var(--gold); margin: 20px 0; font-family: 'Cinzel'; }
-
-        /* BUTTONS */
-        .btn-gold { 
-            background: var(--gold); 
-            color: #000; 
-            padding: 15px 40px; 
-            text-decoration: none; 
-            font-weight: 900; 
-            display: inline-block; 
-            margin-top: 30px; 
-            border-radius: 0;
-            transition: 0.3s;
-            font-family: 'Cinzel';
-        }
-        .btn-gold:hover { background: #fff; box-shadow: 0 0 20px #fff; }
-
-        /* FLOATING ACTION */
-        .float-apply { position: fixed; bottom: 30px; right: 30px; background: var(--gold); color: #000; padding: 18px 30px; font-weight: bold; text-decoration: none; z-index: 999; border: 2px solid #fff; box-shadow: 0 0 20px var(--gold); }
-        .wa-float { position: fixed; bottom: 30px; left: 30px; background: #25D366; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; z-index: 999; box-shadow: 0 0 15px rgba(0,0,0,0.5); }
-
-        /* POPUP */
-        .overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.98); z-index: 10000; justify-content: center; align-items: center; }
-        .popup { background: #111; border: 1px solid var(--gold); padding: 50px; text-align: center; max-width: 550px; }
-
+        .footer { padding: 100px 5%; text-align: center; color: #444; }
     </style>
 </head>
 <body>
 
-    <div class="ticker-wrap">
-        <div class="ticker">
-            ⚠️ CONFIDENTIAL: अमृत द्वार खुला है | ONLY 2 SLOTS LEFT FOR FEBRUARY | NEW MANUSCRIPT ADDED: 28,155+ SECRET FILES INDEXED | ENERGY CHECK REQUIRED FOR ACCESS
+    <div class="status-bar">
+        <span class="live-count">VAULT STATUS: 28,284 MANUSCRIPTS DETECTED</span>
+        <span class="last-added">LAST ENTRY: Lemegeton by Mitch Henson.pdf</span>
+    </div>
+
+    <section class="vault-hero">
+        <h1>THE AKASHIC VAULT</h1>
+        <p class="hindi">गुप्त पांडुलिपि पुस्तकालय</p>
+        <p>The world's most dangerous collection of spiritual science. Access is a privilege, not a right.</p>
+    </section>
+
+    <div class="search-container">
+        <input type="text" placeholder="Search the unsearchable (e.g. Voodoo, Kundalini, Vastu)...">
+        <button class="search-btn" onclick="alert('ACCESS DENIED: Energy Check required for full indexing.')">SEARCH</button>
+    </div>
+
+    <div class="grid">
+        <div class="cat-card">
+            <span class="count-badge">2,432 FILES</span>
+            <h3>ASTRO & JYOTISH</h3>
+            <div class="book-list">
+                • Lal Kitab Remedies<br>
+                • BPHS Complete (Sanjay Rath)<br>
+                • Perfect Astrology Planet 1<br>
+                • Predictive Astrology (Mathur)
+            </div>
+            <p class="lock-overlay">🔒 [LEVEL 1 ACCESS REQUIRED]</p>
+        </div>
+
+        <div class="cat-card">
+            <span class="count-badge">765 FILES</span>
+            <h3>THE DARK ARTS</h3>
+            <div class="book-list">
+                • Tarot Spell Book<br>
+                • Simple Romany Money Spells<br>
+                • Secrets of Occult Sciences<br>
+                • The Grimoire of Spells
+            </div>
+            <p class="lock-overlay">🔒 [LEVEL 3 ACCESS REQUIRED]</p>
+        </div>
+
+        <div class="cat-card">
+            <span class="count-badge">696 FILES</span>
+            <h3>TANTRIC RITES</h3>
+            <div class="book-list">
+                • Secrets of Yantra (Chawdhri)<br>
+                • Mantra-Shakti Manual<br>
+                • Vigyan Bhairav (Secret Notes)<br>
+                • Infallible Vedic Remedies
+            </div>
+            <p class="lock-overlay">🔒 [INITIATION REQUIRED]</p>
+        </div>
+
+        <div class="cat-card">
+            <span class="count-badge">380 FILES</span>
+            <h3>KUNDALINI SCIENCE</h3>
+            <div class="book-list">
+                • Sarvatobhadra Chakra<br>
+                • Light on the Yoga Sutras<br>
+                • Zero Bullshit Meditation<br>
+                • Third Eye Mastery (Pineal)
+            </div>
+            <p class="lock-overlay">🔒 [SHAKTIPAT REQUIRED]</p>
+        </div>
+
+        <div class="cat-card">
+            <span class="count-badge">827 FILES</span>
+            <h3>VEDAS & SHASTRA</h3>
+            <div class="book-list">
+                • Rigveda (Original Sanskrit)<br>
+                • Ashtavakra Gita Pravachan<br>
+                • Samaveda Chanting Scripts<br>
+                • Atharvaveda (Forbidden Rites)
+            </div>
+            <p class="lock-overlay">🔒 [ENERGY CLEARANCE NEEDED]</p>
+        </div>
+        
+        <div class="cat-card">
+            <span class="count-badge">22,500+ FILES</span>
+            <h3>GENERAL SPIRITUALITY</h3>
+            <div class="book-list">
+                • Success Secrets of the Rich<br>
+                • The Power of Now (Tolle)<br>
+                • Feng Shui Plain & Simple<br>
+                • 10,000+ Modern Occult PDFs
+            </div>
+            <p class="lock-overlay">🔒 [PUBLIC GATEWAY OPEN]</p>
         </div>
     </div>
 
-    <section class="hero">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/4/47/Aum_Sanskrit.svg" style="width: 80px; filter: invert(1) drop-shadow(0 0 10px var(--gold));" alt="Sacred Aum">
-        <p class="hindi" style="font-size: 1.5rem; letter-spacing: 5px; margin-top: 20px;">|| ॐ अमृत द्वार ||</p>
-        <h1>AMRIT DWAR</h1>
-        <p class="hindi">ब्रह्मांड ने आपको चुना है। आपकी आंतरिक देवी भूखी है।</p>
-        <p>You are not reading this by accident. Your inner Goddess is starving. Modern life—stress, toxins, and digital noise—has "muted" your biological divinity.</p>
-        <a href="#apply" class="btn-gold">UNMUTE YOUR DIVINITY</a>
-    </section>
-
-    <section class="section" style="text-align: center; background: #000;">
-        <img src="https://cdn-icons-png.flaticon.com/512/1057/1057161.png" class="eye-image" alt="Sacred Eye">
-        <h2 class="hindi">कड़वा सच (The Dark Truth)</h2>
-        <p class="hindi" style="font-size: 1.5rem; color: #fff; margin: 20px 0;">"बिना गुरु के तंत्र का अभ्यास करना नंगे हाथों से हाई-वोल्टेज बिजली पकड़ने जैसा है।"</p>
-        <p style="font-style: italic; color: var(--gold);">Practicing Tantra without a Guru is like handling high-voltage electricity with bare hands.</p>
-    </section>
-
-    <section class="section" id="vault" style="background-image: url('https://images.unsplash.com/photo-1502134249126-9f3755a50d78?auto=format&fit=crop&q=80&w=1920'); background-attachment: fixed; background-size: cover;">
-        <div style="background: rgba(0,0,0,0.85); padding: 50px; border: 1px solid var(--gold);">
-            <div style="text-align:center;">
-                <h2>THE AKASHIC VAULT</h2>
-                <div class="vault-stats">28,155+</div>
-                <p class="hindi">गुप्त ज्ञान की पुस्तकों का विशाल संग्रह (Forbidden Manuscripts)</p>
-            </div>
-            <div class="grid">
-                <div class="card"><h3>Vedas & Sadhana</h3><p class="hindi">ऋग्वेद, सामवेद, यजुर्वेद, अथर्ववेद और साधना विधियां।</p></div>
-                <div class="card"><h3>The Dark Arts</h3><p class="hindi">Western Witchcraft, Voodoo, Spells, and Black Magic Rituals.</p></div>
-                <div class="card"><h3>Divine Magnetism</h3><p class="hindi">स्त्री शक्ति, फेरोमोनल सिग्नल और अमृत द्वार का विज्ञान।</p></div>
-                <div class="card"><h3>Astro & Vastu</h3><p class="hindi">ज्योतिष, वास्तु शास्त्र, अंक ज्योतिष और टैरो कार्ड्स।</p></div>
-            </div>
-        </div>
-    </section>
-
-    <section class="section" id="apply" style="text-align:center;">
-        <h2 class="hindi">आवेदन कैसे करें (How to Apply)</h2>
-        <p style="margin-bottom: 40px; color: #888;">Guru-ji accepts only 5 students per month for One-to-One sacred work.</p>
-        <div class="grid">
-            <div class="card"><h4>1. Energy Check</h4><p>Send your Name, Age, and a clear photo of your eyes for Aura reading.</p></div>
-            <div class="card"><h4>2. The Intent</h4><p>Write why you want to awaken your Amrit Dwar.</p></div>
-            <div class="card"><h4>3. Initiation</h4><p>If selected, you receive the secret rituals and library access.</p></div>
-        </div>
-        <a href="https://wa.me/YOUR_PHONE" class="btn-gold">START YOUR ENERGY CHECK</a>
-    </section>
-
-    <footer style="padding: 50px; text-align: center; border-top: 1px solid var(--gold); background: #000;">
-        <p>© 2026 AMRIT DWAR | CONFIDENTIAL | FOR THE CHOSEN ONES</p>
-    </footer>
-
-    <a href="https://wa.me/YOUR_PHONE" class="wa-float">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" style="width: 35px;" alt="WA">
-    </a>
-    <a href="javascript:void(0)" class="float-apply" onclick="openPopup()">APPLY FOR INITIATION</a>
-
-    <div class="overlay" id="overlay">
-        <div class="popup">
-            <h2 class="hindi">दीक्षा के लिए आवेदन</h2>
-            <p style="margin: 20px 0;">This is an exclusive path. We seek "Vessels" who are ready for total transformation.</p>
-            <p class="hindi" style="color: var(--gold);">अमृत द्वार खुला है। क्या आप भीतर आने को तैयार हैं?</p>
-            <a href="https://wa.me/YOUR_PHONE?text=I+seek+initiation+into+Amrit+Dwar" class="btn-gold">WHATSAPP GURU-JI</a>
-            <br><br>
-            <a href="javascript:void(0)" onclick="closePopup()" style="color: #444; text-decoration: none;">Return to Portal</a>
-        </div>
+    <div class="footer">
+        <p>© 2026 AMRIT DWAR | PART OF THE SECRET SCRIPT NETWORK</p>
+        <a href="index.html" style="color: var(--gold); text-decoration: none;">[ RETURN TO MAIN PORTAL ]</a>
     </div>
 
-    <script>
-        function openPopup() { document.getElementById('overlay').style.display='flex'; }
-        function closePopup() { document.getElementById('overlay').style.display='none'; }
-    </script>
 </body>
 </html>
