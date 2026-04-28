@@ -50,8 +50,7 @@ body{background:var(--deep-black);color:#fff;font-family:'Raleway',sans-serif;}
 .section{text-align:center;margin:40px;color:#aaa;}
 
 /* FOOTER */
-footer{text-align:center;padding:50px;background:#000;}
-footer a{color:var(--gold);margin:10px;}
+footer a{color:#d4af37;margin:10px;text-decoration:none;}
 
 /* WHATSAPP */
 .wa{position:fixed;bottom:20px;left:20px;background:#25D366;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;}
@@ -79,22 +78,26 @@ Example: Lal Kitab, Kundalini, Reiki, Tantra
 </p>
 </section>
 
-<!-- AUDIO -->
+<!-- AUDIO (HINDI + ENGLISH FIXED) -->
 <div class="audio-section">
 <h3 style="color:#d4af37;">🕉️ Meditation Activation</h3>
 <p>Choose your experience</p>
 
 <p>🕉️ Hindi Guided Sadhana</p>
 <audio id="audioHindi">
-<source src="hindi-meditation.mp3">
+<source src="hindi-meditation.mp3" type="audio/mpeg">
 </audio>
 <button class="audio-btn" onclick="toggleAudio('audioHindi')">▶ Activate</button>
 
 <p style="margin-top:20px;">🔮 English Hypnotic Trance</p>
 <audio id="audioEnglish">
-<source src="english-hypnosis.mp3">
+<source src="english-hypnosis.mp3" type="audio/mpeg">
 </audio>
 <button class="audio-btn" onclick="toggleAudio('audioEnglish')">▶ Activate</button>
+
+<p style="color:#777;font-size:0.8rem;margin-top:15px;">
+Deep Theta State • Consciousness Activation
+</p>
 </div>
 
 <!-- WHAT YOU GET -->
@@ -147,14 +150,39 @@ Example: Lal Kitab, Kundalini, Reiki, Tantra
 <p>4. Get full library access</p>
 </div>
 
-<p style="text-align:center;color:#aaa;">
-🔓 Unlock Hidden Knowledge Today • Start Your Spiritual Journey
+<!-- FINAL PUSH -->
+<p style="text-align:center;color:#aaa;margin-top:40px;font-size:0.9rem;">
+🔓 You are one step away from unlocking hidden knowledge
 </p>
 
-<!-- FOOTER -->
-<footer>
+<!-- PREMIUM FOOTER -->
+<footer style="background:#000;padding:60px 20px;border-top:1px solid #222;text-align:center;">
+
+<h2 style="color:#d4af37;font-family:'Cinzel';letter-spacing:2px;">
+AMRIT DWAR
+</h2>
+
+<p style="color:#777;font-size:0.85rem;margin-top:5px;">
+The Akashic Vault • By AVNTS ONLINE – Dr. Roy's Gurukul
+</p>
+
+<div style="margin-top:25px;">
 <a href="Amrit_Dwar_Numbered_Library_Index.txt">📥 Numbered Index</a>
 <a href="Amrit_Dwar_Full_Library_Index.txt">📜 Full Library</a>
+</div>
+
+<p style="color:#888;font-size:0.8rem;margin-top:25px;">
+🔒 Secure Payments • 📲 WhatsApp Support • 📚 Verified Manuscripts
+</p>
+
+<p style="margin-top:30px;color:#444;font-size:0.7rem;">
+© 2026 AVNTS ONLINE – Dr. Roy's Gurukul. All Rights Reserved.
+</p>
+
+<p style="color:#333;font-size:0.65rem;margin-top:5px;">
+For educational and spiritual purposes only.
+</p>
+
 </footer>
 
 <!-- WHATSAPP -->
@@ -162,10 +190,11 @@ Example: Lal Kitab, Kundalini, Reiki, Tantra
 <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" width="30">
 </a>
 
+<!-- SCRIPT -->
 <script>
 function preview(){
 let v=document.getElementById("input").value;
-document.getElementById("preview").style.display = v.length>2?"block":"none";
+document.getElementById("preview").style.display = v.length>2?"block":"block";
 }
 
 function toggleAudio(id){
