@@ -15,132 +15,173 @@
 <style>
 :root { --gold:#d4af37; --deep-black:#050505; --blood:#7b0000; --glow:rgba(212,175,55,0.6); }
 *{margin:0;padding:0;box-sizing:border-box;}
-body{background:var(--deep-black);color:#fff;font-family:'Raleway',sans-serif;line-height:1.6;}
+body{background:var(--deep-black);color:#fff;font-family:'Raleway',sans-serif;}
 
-/* HEADLINE */
+/* HEADER */
 .master-headline{padding:150px 5% 50px;text-align:center;background:radial-gradient(circle,#1a1a1a,#050505);}
 .master-headline h1{font-family:'Cinzel';font-size:clamp(3rem,10vw,7rem);color:var(--gold);text-shadow:0 0 30px var(--glow);}
-.hindi{font-family:'Tiro Devanagari Hindi',serif;font-size:2rem;margin-top:20px;}
-
-.trust{color:#aaa;margin-top:20px;}
+.hindi{font-size:2rem;margin-top:20px;}
+.trust{color:#aaa;margin-top:10px;}
 
 /* SEARCH */
-.search-section{padding:50px 10%;background:#0a0a0a;text-align:center;}
-.search-box{width:100%;max-width:600px;padding:15px;background:#000;border:1px solid var(--gold);color:var(--gold);}
-.preview{display:none;color:#444;font-size:0.8rem;margin-top:10px;}
+.search-section{padding:50px;text-align:center;background:#0a0a0a;}
+.search-box{padding:15px;width:90%;max-width:600px;background:#000;border:1px solid var(--gold);color:var(--gold);}
+.preview{display:none;color:#444;margin-top:10px;}
 
 /* AUDIO */
-.audio-section{text-align:center;margin:50px;}
-.audio-btn{background:#000;border:1px solid var(--gold);color:var(--gold);padding:10px 15px;margin-top:10px;cursor:pointer;}
+.audio-section{text-align:center;margin:60px;}
+.audio-btn{background:#000;border:1px solid var(--gold);color:var(--gold);padding:10px;margin-top:10px;cursor:pointer;}
+.audio-btn:hover{background:var(--gold);color:#000;}
 
 /* NOTICE */
 .energy-notice{max-width:900px;margin:40px auto;padding:30px;border:1px solid var(--blood);background:rgba(123,0,0,0.1);text-align:center;}
 
 /* GRID */
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;padding:0 10%;margin-bottom:80px;}
-.card{background:#0d0d0d;border:1px solid #222;padding:40px;text-align:center;transition:0.3s;}
-.card:hover{border-color:var(--gold);transform:translateY(-5px);}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;padding:0 10%;margin-bottom:40px;}
+.card{background:#0d0d0d;border:1px solid #222;padding:40px;text-align:center;}
 .card.popular{border:2px solid var(--gold);box-shadow:0 0 30px var(--glow);}
-.price{font-size:3rem;font-family:'Cinzel';color:var(--gold);}
+.price{font-size:3rem;color:var(--gold);}
 
 /* BUTTON */
-.btn{display:block;padding:15px;background:var(--gold);color:#000;text-decoration:none;font-weight:bold;margin-top:20px;}
+.btn{display:block;padding:15px;background:var(--gold);color:#000;text-decoration:none;margin-top:20px;}
 .btn-wa{background:var(--blood);color:#fff;}
 
-/* HOW TO ACCESS */
-.steps{max-width:800px;margin:60px auto;text-align:center;color:#aaa;}
+/* SECTIONS */
+.section{text-align:center;margin:40px;color:#aaa;}
 
 /* FOOTER */
-.download-footer{text-align:center;padding:50px;background:#000;}
-.download-footer a{color:var(--gold);margin:0 20px;text-decoration:none;}
+footer{text-align:center;padding:50px;background:#000;}
+footer a{color:var(--gold);margin:10px;}
 
 /* WHATSAPP */
-.wa-float{position:fixed;bottom:20px;left:20px;background:#25D366;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;}
+.wa{position:fixed;bottom:20px;left:20px;background:#25D366;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;}
 </style>
 
 </head>
 
 <body>
 
+<!-- HEADER -->
 <section class="master-headline">
 <h1>THE AKASHIC VAULT</h1>
 <div class="hindi">अमृतद्वार: दिव्य सम्मोहन</div>
-<div class="trust">28,784+ Rare & Verified Manuscripts • Instant Access After Payment</div>
+<div class="trust">28,784+ Rare Manuscripts • Instant Access</div>
+<div class="trust">Trusted by 1,000+ Spiritual Seekers • Active Members Daily</div>
 </section>
 
+<!-- SEARCH -->
 <section class="search-section">
-<h3 style="color:var(--gold)">SEARCH 28,784+ MANUSCRIPTS</h3>
+<h3 style="color:#d4af37;">SEARCH 28,784+ MANUSCRIPTS</h3>
 <input class="search-box" id="input" onkeyup="preview()" placeholder="Search Lal Kitab, Tantra...">
 <div id="preview" class="preview">Access Restricted • Energy Exchange Required</div>
+<p style="color:#888;font-size:0.8rem;margin-top:10px;">
+Example: Lal Kitab, Kundalini, Reiki, Tantra
+</p>
 </section>
 
 <!-- AUDIO -->
 <div class="audio-section">
-<h3 style="color:var(--gold)">🕉️ Meditation Activation</h3>
-<p style="color:#aaa">Prepare your mind before entering the vault</p>
+<h3 style="color:#d4af37;">🕉️ Meditation Activation</h3>
+<p>Choose your experience</p>
 
-<audio id="audio">
-<source src="hindi-meditation.mp3" type="audio/mpeg">
+<p>🕉️ Hindi Guided Sadhana</p>
+<audio id="audioHindi">
+<source src="hindi-meditation.mp3">
 </audio>
+<button class="audio-btn" onclick="toggleAudio('audioHindi')">▶ Activate</button>
 
-<button class="audio-btn" onclick="toggleAudio()">🔊 Play / Pause</button>
-
-<p style="color:#777;font-size:0.8rem;margin-top:10px;">Deep Theta State • Guided Sadhana</p>
+<p style="margin-top:20px;">🔮 English Hypnotic Trance</p>
+<audio id="audioEnglish">
+<source src="english-hypnosis.mp3">
+</audio>
+<button class="audio-btn" onclick="toggleAudio('audioEnglish')">▶ Activate</button>
 </div>
 
+<!-- WHAT YOU GET -->
+<div class="section">
+<h3 style="color:#d4af37;">📚 What You Get</h3>
+<p>✔ 28,784+ Rare PDF Books</p>
+<p>✔ Astrology, Tantra, Reiki, Occult & More</p>
+<p>✔ Lifetime Updates (Premium)</p>
+<p>✔ Direct Access After Payment</p>
+</div>
+
+<!-- NOTICE -->
 <div class="energy-notice">
-⚠️ Dakshina (Fees) is for <strong>Library Access Only</strong><br>
-3rd Eye Activation / Kundalini / Diksha = Separate Charges
+⚠️ Dakshina (Fees) is for Library Access Only<br>
+🔒 Secure Payment via Razorpay • Verified Access
 </div>
 
+<!-- PRICING -->
 <div class="grid">
+
 <div class="card">
 <h3>99 Days Access</h3>
 <div class="price">₹999</div>
-<p style="color:#666;">28,784+ Books</p>
-<a href="https://razorpay.me/@avntsonline" class="btn">PAY DAKSHINA</a>
+<a href="https://razorpay.me/@avntsonline" class="btn">GET INSTANT ACCESS</a>
 </div>
 
 <div class="card popular">
 <h3>LIFETIME ACCESS</h3>
 <div class="price">₹1,999</div>
-<p>All Future Updates Included</p>
-<a href="https://razorpay.me/@avntsonline" class="btn">UNLOCK FOREVER</a>
+<a href="https://razorpay.me/@avntsonline" class="btn">UNLOCK FULL LIBRARY</a>
 </div>
 
 <div class="card">
 <h3>PERSONAL SADHANA</h3>
-<a href="https://wa.me/message/ITZRP5ZVP25LP1" class="btn btn-wa">WHATSAPP NOW</a>
+<a href="https://wa.me/message/ITZRP5ZVP25LP1" class="btn btn-wa">SEND PAYMENT SCREENSHOT</a>
 </div>
+
 </div>
+
+<p style="text-align:center;color:#ff4d4d;">
+⚠️ Limited Time Offer • Price May Increase Soon
+</p>
 
 <!-- HOW TO ACCESS -->
-<div class="steps">
-<h3 style="color:var(--gold)">🔓 How To Get Full Access</h3>
-<p>1. Click PAY / UNLOCK</p>
+<div class="section">
+<h3 style="color:#d4af37;">🔓 How To Get Access</h3>
+<p>1. Click GET INSTANT ACCESS</p>
 <p>2. Complete payment</p>
 <p>3. Send screenshot on WhatsApp</p>
-<p>4. Get access to full vault</p>
+<p>4. Get full library access</p>
 </div>
 
-<footer class="download-footer">
+<p style="text-align:center;color:#aaa;">
+🔓 Unlock Hidden Knowledge Today • Start Your Spiritual Journey
+</p>
+
+<!-- FOOTER -->
+<footer>
 <a href="Amrit_Dwar_Numbered_Library_Index.txt">📥 Numbered Index</a>
-<a href="Amrit_Dwar_Full_Library_Index.txt">📜 Full Library Index</a>
+<a href="Amrit_Dwar_Full_Library_Index.txt">📜 Full Library</a>
 </footer>
 
-<a href="https://wa.me/message/ITZRP5ZVP25LP1" class="wa-float">
-<img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" width="35">
+<!-- WHATSAPP -->
+<a href="https://wa.me/message/ITZRP5ZVP25LP1" class="wa">
+<img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" width="30">
 </a>
 
 <script>
 function preview(){
-let val=document.getElementById("input").value;
-document.getElementById("preview").style.display = val.length>2 ? "block":"none";
+let v=document.getElementById("input").value;
+document.getElementById("preview").style.display = v.length>2?"block":"none";
 }
 
-function toggleAudio(){
-let a=document.getElementById("audio");
-a.paused ? a.play() : a.pause();
+function toggleAudio(id){
+document.querySelectorAll("audio").forEach(a=>{
+if(a.id!==id){a.pause();a.currentTime=0;}
+});
+let a=document.getElementById(id);
+a.paused?a.play():a.pause();
+}
+
+window.onload=function(){
+let a=document.getElementById("audioHindi");
+if(a){
+a.volume=0.1;
+a.play().catch(()=>{});
+}
 }
 </script>
 
