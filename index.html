@@ -10,207 +10,235 @@
 <meta name="keywords" content="occult books pdf, tantra books, astrology books, numerology, kundalini, akashic records">
 <meta name="robots" content="index, follow">
 
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Tiro+Devanagari+Hindi&family=Raleway:wght@300;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Tiro+Devanagari+Hindi&family=Raleway:wght@300;600;700&display=swap" rel="stylesheet">
 
 <style>
-:root { --gold:#d4af37; --deep-black:#050505; --blood:#7b0000; --glow:rgba(212,175,55,0.6); }
+:root { 
+    --gold: #d4af37; 
+    --deep-black: #050505; 
+    --blood: #7b0000; 
+    --glow: rgba(212, 175, 55, 0.4); 
+    --card-bg: #0d0d12;
+}
+
 *{margin:0;padding:0;box-sizing:border-box;}
-body{background:var(--deep-black);color:#fff;font-family:'Raleway',sans-serif;}
+body{background:var(--deep-black);color:#fff;font-family:'Raleway',sans-serif;line-height:1.6;}
 
 /* HEADER */
-.master-headline{padding:150px 5% 50px;text-align:center;background:radial-gradient(circle,#1a1a1a,#050505);}
-.master-headline h1{font-family:'Cinzel';font-size:clamp(3rem,10vw,7rem);color:var(--gold);text-shadow:0 0 30px var(--glow);}
-.hindi{font-size:2rem;margin-top:20px;}
-.trust{color:#aaa;margin-top:10px;}
+.master-headline{padding:80px 5% 40px;text-align:center;background:radial-gradient(circle at center, #1a1a24 0%, #050505 100%);border-bottom:1px solid #1a1a1a;}
+.master-headline h1{font-family:'Cinzel', serif;font-size:clamp(2.5rem,7vw,5rem);color:var(--gold);text-shadow:0 0 25px var(--glow);letter-spacing:3px;}
+.hindi{font-family:'Tiro Devanagari Hindi', serif;font-size:1.8rem;margin-top:10px;color:#e0e0e0;}
+.trust-badge{display:inline-block;margin-top:15px;padding:6px 16px;background:rgba(212,175,55,0.1);border:1px solid var(--gold);border-radius:20px;color:var(--gold);font-size:0.85rem;font-weight:600;}
 
-/* SEARCH */
-.search-section{padding:50px;text-align:center;background:#0a0a0a;}
-.search-box{padding:15px;width:90%;max-width:600px;background:#000;border:1px solid var(--gold);color:var(--gold);}
-.preview{display:none;color:#444;margin-top:10px;}
+/* SEARCH SECTION */
+.search-section{padding:50px 5%;text-align:center;background:#090a0f;}
+.search-box{padding:16px 20px;width:100%;max-width:650px;background:#000;border:2px solid var(--gold);color:#fff;font-size:1.1rem;border-radius:30px;outline:none;box-shadow:0 0 15px var(--glow);transition:0.3s;}
+.search-box:focus{box-shadow:0 0 25px var(--gold);}
 
-/* AUDIO */
-.audio-section{text-align:center;margin:60px;}
-.audio-btn{background:#000;border:1px solid var(--gold);color:var(--gold);padding:10px;margin-top:10px;cursor:pointer;}
+/* RESULTS BOX */
+.results-container{max-width:700px;margin:20px auto 0;text-align:left;background:#10121d;border-radius:12px;border:1px solid #222;max-height:400px;overflow-y:auto;padding:10px;}
+.book-item{padding:12px 15px;border-bottom:1px solid #1a1e30;display:flex;justify-content:space-between;align-items:center;gap:10px;}
+.book-title{font-size:0.95rem;color:#e0e0e0;word-break:break-word;}
+.unlock-btn{background:var(--gold);color:#000;padding:6px 14px;border-radius:20px;text-decoration:none;font-weight:bold;font-size:0.8rem;white-space:nowrap;transition:0.2s;}
+.unlock-btn:hover{background:#fff;box-shadow:0 0 10px #fff;}
+
+/* AUDIO SECTION */
+.audio-section{text-align:center;margin:50px 5%;padding:30px;background:#0d0e17;border-radius:15px;border:1px solid #1f2338;}
+.audio-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:20px;margin-top:20px;}
+.audio-card{background:#000;padding:20px;border:1px solid #333;border-radius:10px;min-width:250px;}
+.audio-btn{background:transparent;border:1px solid var(--gold);color:var(--gold);padding:8px 20px;margin-top:10px;cursor:pointer;border-radius:20px;font-weight:bold;transition:0.3s;}
 .audio-btn:hover{background:var(--gold);color:#000;}
 
+/* PRICING GRID */
+.pricing-section{padding:50px 5%;max-width:1200px;margin:0 auto;}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:25px;}
+.card{background:var(--card-bg);border:1px solid #222;border-radius:15px;padding:35px 20px;text-align:center;position:relative;display:flex;flex-direction:column;justify-content:space-between;transition:0.3s;}
+.card:hover{transform:translateY(-5px);}
+.card.popular{border:2px solid var(--gold);box-shadow:0 0 35px var(--glow);background:#12131f;}
+.popular-badge{position:absolute;top:-15px;left:50%;transform:translateX(-50%);background:var(--gold);color:#000;padding:4px 15px;font-size:0.75rem;font-weight:bold;border-radius:10px;text-transform:uppercase;}
+.price{font-size:3rem;color:var(--gold);font-family:'Cinzel',serif;font-weight:700;margin:15px 0 5px;}
+.price-sub{color:#888;font-size:0.8rem;margin-bottom:20px;}
+.card-features{text-align:left;margin:20px 0;font-size:0.9rem;color:#ccc;list-style:none;}
+.card-features li{margin-bottom:10px;padding-left:20px;position:relative;}
+.card-features li::before{content:"✔";position:absolute;left:0;color:var(--gold);}
+
+/* BUTTONS */
+.btn{display:block;padding:14px;background:var(--gold);color:#000;text-decoration:none;font-weight:bold;border-radius:30px;letter-spacing:1px;transition:0.3s;}
+.btn:hover{background:#fff;box-shadow:0 0 15px #fff;}
+.btn-wa{background:#25D366;color:#fff;}
+.btn-wa:hover{background:#1eb757;box-shadow:0 0 15px #25D366;}
+
 /* NOTICE */
-.energy-notice{max-width:900px;margin:40px auto;padding:30px;border:1px solid var(--blood);background:rgba(123,0,0,0.1);text-align:center;}
+.energy-notice{max-width:800px;margin:30px auto;padding:20px;border:1px solid var(--blood);background:rgba(123,0,0,0.15);text-align:center;border-radius:10px;color:#ff8080;}
 
-/* GRID */
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;padding:0 10%;margin-bottom:40px;}
-.card{background:#0d0d0d;border:1px solid #222;padding:40px;text-align:center;}
-.card.popular{border:2px solid var(--gold);box-shadow:0 0 30px var(--glow);}
-.price{font-size:3rem;color:var(--gold);}
-
-/* BUTTON */
-.btn{display:block;padding:15px;background:var(--gold);color:#000;text-decoration:none;margin-top:20px;}
-.btn-wa{background:var(--blood);color:#fff;}
-
-/* SECTIONS */
-.section{text-align:center;margin:40px;color:#aaa;}
-
-/* FOOTER */
-footer a{color:#d4af37;margin:10px;text-decoration:none;}
-
-/* WHATSAPP */
-.wa{position:fixed;bottom:20px;left:20px;background:#25D366;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;}
+/* WHATSAPP FLOAT */
+.wa{position:fixed;bottom:25px;right:25px;background:#25D366;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 0 20px rgba(37,211,102,0.5);z-index:100;}
 </style>
-
 </head>
 
 <body>
 
-<!-- HEADER -->
 <section class="master-headline">
-<h1>THE AKASHIC VAULT</h1>
-<div class="hindi">अमृतद्वार: दिव्य सम्मोहन</div>
-<div class="trust">30,264+ Rare Manuscripts • Instant Access</div>
-<div class="trust">Trusted by 1,000+ Spiritual Seekers • Active Members Daily</div>
+    <h1>THE AKASHIC VAULT</h1>
+    <div class="hindi">अमृतद्वार: दिव्य सम्मोहन</div>
+    <div class="trust-badge">30,264+ Rare Manuscripts • Instant Access</div>
+    <p style="color:#aaa;margin-top:10px;font-size:0.9rem;">Trusted by 1,000+ Spiritual Seekers • Active Daily Community</p>
 </section>
 
-<!-- SEARCH -->
 <section class="search-section">
-<h3 style="color:#d4af37;">SEARCH 30,264+ MANUSCRIPTS</h3>
-<input class="search-box" id="input" onkeyup="preview()" placeholder="Search Lal Kitab, Tantra...">
-<div id="preview" class="preview">Access Restricted • Energy Exchange Required</div>
-<p style="color:#888;font-size:0.8rem;margin-top:10px;">
-Example: Lal Kitab, Kundalini, Reiki, Tantra
-</p>
+    <h3 style="color:var(--gold);font-family:'Cinzel',serif;letter-spacing:1px;margin-bottom:15px;">🔍 SEARCH 30,264+ MANUSCRIPTS</h3>
+    <input class="search-box" id="searchBar" onkeyup="searchBooks()" placeholder="Type book title... (e.g., Lal Kitab, Tantra, Tarot, Reiki)">
+    
+    <div id="results" class="results-container">
+        <p style="text-align:center;color:#888;padding:15px;">Start typing to search the hidden vault index...</p>
+    </div>
 </section>
 
-<!-- AUDIO (HINDI + ENGLISH FIXED) -->
 <div class="audio-section">
-<h3 style="color:#d4af37;">🕉️ Meditation Activation</h3>
-<p>Choose your experience</p>
+    <h3 style="color:var(--gold);font-family:'Cinzel',serif;">🕉️ Meditation & Trance Activation</h3>
+    <p style="color:#aaa;font-size:0.85rem;">Tune into deep Theta consciousness before entering the library</p>
 
-<p>🕉️ Hindi Guided Sadhana</p>
-<audio id="audioHindi">
-<source src="hindi-meditation.mp3" type="audio/mpeg">
-</audio>
-<button class="audio-btn" onclick="toggleAudio('audioHindi')">▶ Activate</button>
+    <div class="audio-grid">
+        <div class="audio-card">
+            <p style="color:var(--gold);">🕉️ Hindi Guided Sadhana</p>
+            <audio id="audioHindi"><source src="hindi-meditation.mp3" type="audio/mpeg"></audio>
+            <button class="audio-btn" onclick="toggleAudio('audioHindi')">▶ Activate</button>
+        </div>
 
-<p style="margin-top:20px;">🔮 English Hypnotic Trance</p>
-<audio id="audioEnglish">
-<source src="english-hypnosis.mp3" type="audio/mpeg">
-</audio>
-<button class="audio-btn" onclick="toggleAudio('audioEnglish')">▶ Activate</button>
-
-<p style="color:#777;font-size:0.8rem;margin-top:15px;">
-Deep Theta State • Consciousness Activation
-</p>
+        <div class="audio-card">
+            <p style="color:var(--gold);">🔮 English Hypnotic Trance</p>
+            <audio id="audioEnglish"><source src="english-hypnosis.mp3" type="audio/mpeg"></audio>
+            <button class="audio-btn" onclick="toggleAudio('audioEnglish')">▶ Activate</button>
+        </div>
+    </div>
 </div>
 
-<!-- WHAT YOU GET -->
-<div class="section">
-<h3 style="color:#d4af37;">📚 What You Get</h3>
-<p>✔ 30,264+ Rare PDF Books</p>
-<p>✔ Astrology, Tantra, Reiki, Occult & More</p>
-<p>✔ Lifetime Updates (Premium)</p>
-<p>✔ Direct Access After Payment</p>
-</div>
+<section class="pricing-section">
+    <h2 style="text-align:center;color:var(--gold);font-family:'Cinzel',serif;margin-bottom:30px;letter-spacing:2px;">CHOOSE YOUR ENERGY EXCHANGE</h2>
 
-<!-- NOTICE -->
-<div class="energy-notice">
-⚠️ Dakshina (Fees) is for Library Access Only<br>
-🔒 Secure Payment via Razorpay • Verified Access
-</div>
+    <div class="grid">
+        <div class="card">
+            <div>
+                <h3>30-Day Starter Pass</h3>
+                <div class="price">₹99</div>
+                <div class="price-sub">Trial Access</div>
+                <ul class="card-features">
+                    <li>30 Days Full Group Access</li>
+                    <li>Read 30,264+ Manuscripts</li>
+                    <li>Basic Search Access</li>
+                </ul>
+            </div>
+            <a href="https://razorpay.me/@avntsonline" class="btn">UNLOCK 30 DAYS</a>
+        </div>
 
-<!-- PRICING -->
-<div class="grid">
+        <div class="card popular">
+            <div class="popular-badge">Most Popular</div>
+            <div>
+                <h3>365 Days Access</h3>
+                <div class="price">₹399</div>
+                <div class="price-sub">Just ~₹1 / day</div>
+                <ul class="card-features">
+                    <li>1 Full Year Private Access</li>
+                    <li>Direct File Downloads</li>
+                    <li>Full Search Engine Usage</li>
+                    <li>Priority WhatsApp Support</li>
+                </ul>
+            </div>
+            <a href="https://razorpay.me/@avntsonline" class="btn">UNLOCK 1 YEAR</a>
+        </div>
 
-<div class="card">
-<h3>365 Days Access</h3>
-<div class="price">₹499</div>
-<a href="https://razorpay.me/@avntsonline" class="btn">GET INSTANT ACCESS</a>
-</div>
+        <div class="card">
+            <div>
+                <h3>Lifetime VIP Pass</h3>
+                <div class="price">₹999</div>
+                <div class="price-sub">Pay Once, Own Forever</div>
+                <ul class="card-features">
+                    <li>Permanent Lifetime Entry</li>
+                    <li>Unlimited Cloud Downloads</li>
+                    <li>5+ New Manuscripts Added Daily</li>
+                    <li>VIP Spiritual Sadhana Access</li>
+                </ul>
+            </div>
+            <a href="https://razorpay.me/@avntsonline" class="btn">UNLOCK LIFETIME ACCESS</a>
+        </div>
+    </div>
 
-<div class="card popular">
-<h3>LIFETIME ACCESS</h3>
-<div class="price">₹1,599</div>
-<a href="https://razorpay.me/@avntsonline" class="btn">UNLOCK FULL LIBRARY</a>
-</div>
+    <div class="energy-notice">
+        ⚠️ <strong>Dakshina Notice:</strong> Fees cover library hosting, server bandwidth & daily maintenance.<br>
+        🔒 Secure Automated Delivery via Razorpay / Cosmofeed
+    </div>
+</section>
 
-<div class="card">
-<h3>PERSONAL SADHANA</h3>
-<a href="https://wa.me/message/ITZRP5ZVP25LP1" class="btn btn-wa">SEND PAYMENT SCREENSHOT</a>
-</div>
+<footer style="background:#000;padding:50px 20px;border-top:1px solid #1a1a1a;text-align:center;">
+    <h2 style="color:var(--gold);font-family:'Cinzel',serif;letter-spacing:2px;">AMRIT DWAR</h2>
+    <p style="color:#666;font-size:0.85rem;margin-top:5px;">The Akashic Vault • By AVNTS ONLINE – Dr. Roy's Gurukul</p>
 
-</div>
+    <div style="margin-top:20px;">
+        <a href="Amrit_Dwar_Full_Library_Index.txt" style="color:var(--gold);margin:0 10px;text-decoration:none;">📜 Full Library Index (.txt)</a>
+    </div>
 
-<p style="text-align:center;color:#ff4d4d;">
-⚠️ Limited Time Offer • Price May Increase Soon
-</p>
-
-<!-- HOW TO ACCESS -->
-<div class="section">
-<h3 style="color:#d4af37;">🔓 How To Get Access</h3>
-<p>1. Click GET INSTANT ACCESS</p>
-<p>2. Complete payment</p>
-<p>3. Send screenshot on WhatsApp</p>
-<p>4. Get full library access</p>
-</div>
-
-<!-- FINAL PUSH -->
-<p style="text-align:center;color:#aaa;margin-top:40px;font-size:0.9rem;">
-🔓 You are one step away from unlocking hidden knowledge
-</p>
-
-<!-- PREMIUM FOOTER -->
-<footer style="background:#000;padding:60px 20px;border-top:1px solid #222;text-align:center;">
-
-<h2 style="color:#d4af37;font-family:'Cinzel';letter-spacing:2px;">
-AMRIT DWAR
-</h2>
-
-<p style="color:#777;font-size:0.85rem;margin-top:5px;">
-The Akashic Vault • By AVNTS ONLINE – Dr. Roy's Gurukul
-</p>
-
-<div style="margin-top:25px;">
-<a href="Amrit_Dwar_Numbered_Library_Index.txt">📥 Numbered Index</a>
-<a href="Amrit_Dwar_Full_Library_Index.txt">📜 Full Library</a>
-</div>
-
-<p style="color:#888;font-size:0.8rem;margin-top:25px;">
-🔒 Secure Payments • 📲 WhatsApp Support • 📚 Verified Manuscripts
-</p>
-
-<p style="margin-top:30px;color:#444;font-size:0.7rem;">
-© 2026 AVNTS ONLINE – Dr. Roy's Gurukul. All Rights Reserved.
-</p>
-
-<p style="color:#333;font-size:0.65rem;margin-top:5px;">
-For educational and spiritual purposes only.
-</p>
-
+    <p style="color:#444;font-size:0.75rem;margin-top:25px;">© 2026 AVNTS ONLINE – Dr. Roy's Gurukul. All Rights Reserved.</p>
 </footer>
 
-<!-- WHATSAPP -->
-<a href="https://wa.me/message/ITZRP5ZVP25LP1" class="wa">
-<img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" width="30">
+<a href="https://wa.me/message/ITZRP5ZVP25LP1" class="wa" target="_blank" title="Contact Support">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" width="32" alt="WhatsApp">
 </a>
 
-<!-- SCRIPT -->
 <script>
-function preview(){
-let v=document.getElementById("input").value;
-document.getElementById("preview").style.display = v.length>2?"block":"block";
+let allBooks = [];
+
+// Fetch JSON index automatically on page load
+fetch('library_index.json')
+    .then(response => response.json())
+    .then(data => {
+        allBooks = data;
+        console.log("Successfully indexed " + allBooks.length + " manuscripts.");
+    })
+    .catch(err => {
+        console.error("JSON Index not found, falling back to basic preview.");
+    });
+
+// Real-time Search Engine Function
+function searchBooks() {
+    const query = document.getElementById('searchBar').value.toLowerCase().trim();
+    const resultsDiv = document.getElementById('results');
+    resultsDiv.innerHTML = '';
+
+    if (query.length < 2) {
+        resultsDiv.innerHTML = '<p style="text-align:center;color:#888;padding:15px;">Type at least 2 characters to search...</p>';
+        return;
+    }
+
+    if(allBooks.length === 0) {
+        resultsDiv.innerHTML = '<p style="text-align:center;color:#ff8080;padding:15px;">Access Restricted • Energy Exchange Required for full search.</p>';
+        return;
+    }
+
+    const filtered = allBooks.filter(book => book.toLowerCase().includes(query)).slice(0, 30);
+
+    if (filtered.length === 0) {
+        resultsDiv.innerHTML = '<p style="text-align:center;color:#ff8080;padding:15px;">No matching manuscripts found in public index.</p>';
+        return;
+    }
+
+    filtered.forEach(bookTitle => {
+        const item = document.createElement('div');
+        item.className = 'book-item';
+        item.innerHTML = `
+            <span class="book-title">📚 ${bookTitle}</span>
+            <a href="https://razorpay.me/@avntsonline" class="unlock-btn" target="_blank">🔒 Unlock Pass</a>
+        `;
+        resultsDiv.appendChild(item);
+    });
 }
 
+// Audio Player Manager
 function toggleAudio(id){
-document.querySelectorAll("audio").forEach(a=>{
-if(a.id!==id){a.pause();a.currentTime=0;}
-});
-let a=document.getElementById(id);
-a.paused?a.play():a.pause();
-}
-
-window.onload=function(){
-let a=document.getElementById("audioHindi");
-if(a){
-a.volume=0.1;
-a.play().catch(()=>{});
-}
+    document.querySelectorAll("audio").forEach(a => {
+        if(a.id !== id) { a.pause(); a.currentTime = 0; }
+    });
+    let a = document.getElementById(id);
+    a.paused ? a.play() : a.pause();
 }
 </script>
 
