@@ -55,7 +55,11 @@ body{background:var(--deep-black);color:#fff;font-family:'Raleway',sans-serif;li
 .card{background:var(--card-bg);border:1px solid #222;border-radius:15px;padding:35px 20px;text-align:center;position:relative;display:flex;flex-direction:column;justify-content:space-between;transition:0.3s;}
 .card:hover{transform:translateY(-5px);}
 .card.popular{border:2px solid var(--gold);box-shadow:0 0 35px var(--glow);background:#12131f;}
-.popular-badge{position:absolute;top:-15px;left:50%;transform:translateX(-50%);background:var(--gold);color:#000;padding:4px 15px;font-size:0.75rem;font-weight:bold;border-radius:10px;text-transform:uppercase;}
+.card.disabled-card{opacity:0.45;filter:grayscale(0.8);border:1px solid #333;pointer-events:none;}
+
+.popular-badge{position:absolute;top:-15px;left:50%;transform:translateX(-50%);background:var(--gold);color:#000;padding:4px 15px;font-size:0.75rem;font-weight:bold;border-radius:10px;text-transform:uppercase;white-space:nowrap;}
+.sold-out-badge{position:absolute;top:-15px;left:50%;transform:translateX(-50%);background:var(--blood);color:#fff;padding:4px 15px;font-size:0.75rem;font-weight:bold;border-radius:10px;text-transform:uppercase;white-space:nowrap;}
+
 .price{font-size:3rem;color:var(--gold);font-family:'Cinzel',serif;font-weight:700;margin:15px 0 5px;}
 .price-sub{color:#888;font-size:0.8rem;margin-bottom:20px;}
 .card-features{text-align:left;margin:20px 0;font-size:0.9rem;color:#ccc;list-style:none;}
@@ -65,8 +69,7 @@ body{background:var(--deep-black);color:#fff;font-family:'Raleway',sans-serif;li
 /* BUTTONS */
 .btn{display:block;padding:14px;background:var(--gold);color:#000;text-decoration:none;font-weight:bold;border-radius:30px;letter-spacing:1px;transition:0.3s;}
 .btn:hover{background:#fff;box-shadow:0 0 15px #fff;}
-.btn-wa{background:#25D366;color:#fff;}
-.btn-wa:hover{background:#1eb757;box-shadow:0 0 15px #25D366;}
+.btn-disabled{background:#222!important;color:#666!important;box-shadow:none!important;cursor:not-allowed;}
 
 /* NOTICE */
 .energy-notice{max-width:800px;margin:30px auto;padding:20px;border:1px solid var(--blood);background:rgba(123,0,0,0.15);text-align:center;border-radius:10px;color:#ff8080;}
@@ -117,41 +120,43 @@ body{background:var(--deep-black);color:#fff;font-family:'Raleway',sans-serif;li
     <h2 style="text-align:center;color:var(--gold);font-family:'Cinzel',serif;margin-bottom:30px;letter-spacing:2px;">CHOOSE YOUR ENERGY EXCHANGE</h2>
 
     <div class="grid">
-        <div class="card">
+        <div class="card disabled-card">
+            <div class="sold-out-badge">🔴 QUOTA FULL</div>
             <div>
                 <h3>30-Day Starter Pass</h3>
-                <div class="price">₹99</div>
-                <div class="price-sub">Trial Access</div>
-                <ul class="card-features">
+                <div class="price" style="color:#777;">₹299</div>
+                <div class="price-sub" style="color:#ff4d4d;">❌ Monthly Seats Filled</div>
+                <ul class="card-features" style="opacity:0.6;">
                     <li>30 Days Full Group Access</li>
                     <li>Read 30,462+ Manuscripts</li>
                     <li>Basic Search Access</li>
                 </ul>
             </div>
-            <a href="https://razorpay.me/@avntsonline" class="btn">UNLOCK 30 DAYS</a>
+            <a href="#" class="btn btn-disabled">ACCESS CLOSED</a>
         </div>
 
-        <div class="card popular">
-            <div class="popular-badge">Most Popular</div>
+        <div class="card disabled-card">
+            <div class="sold-out-badge">🔴 QUOTA FULL</div>
             <div>
                 <h3>365 Days Access</h3>
-                <div class="price">₹399</div>
-                <div class="price-sub">Just ~₹1 / day</div>
-                <ul class="card-features">
+                <div class="price" style="color:#777;">₹499</div>
+                <div class="price-sub" style="color:#ff4d4d;">❌ Annual Slots Maxed Out</div>
+                <ul class="card-features" style="opacity:0.6;">
                     <li>1 Full Year Private Access</li>
                     <li>Direct File Downloads</li>
                     <li>Full Search Engine Usage</li>
                     <li>Priority WhatsApp Support</li>
                 </ul>
             </div>
-            <a href="https://razorpay.me/@avntsonline" class="btn">UNLOCK 1 YEAR</a>
+            <a href="#" class="btn btn-disabled">ACCESS CLOSED</a>
         </div>
 
-        <div class="card">
+        <div class="card popular">
+            <div class="popular-badge">🔥 ONLY FEW VIP SLOTS REMAINING</div>
             <div>
-                <h3>Lifetime VIP Pass</h3>
+                <h3>LIFETIME VIP PASS</h3>
                 <div class="price">₹999</div>
-                <div class="price-sub">Pay Once, Own Forever</div>
+                <div class="price-sub">Pay Once • Own the Vault Forever</div>
                 <ul class="card-features">
                     <li>Permanent Lifetime Entry</li>
                     <li>Unlimited Cloud Downloads</li>
@@ -165,7 +170,7 @@ body{background:var(--deep-black);color:#fff;font-family:'Raleway',sans-serif;li
 
     <div class="energy-notice">
         ⚠️ <strong>Dakshina Notice:</strong> Fees cover library hosting, server bandwidth & daily maintenance.<br>
-        🔒 Secure Automated Delivery via Razorpay 
+        🔒 Secure Delivery via Razorpay • Verify Receipt on WhatsApp
     </div>
 </section>
 
@@ -174,7 +179,7 @@ body{background:var(--deep-black);color:#fff;font-family:'Raleway',sans-serif;li
     <p style="color:#666;font-size:0.85rem;margin-top:5px;">The Akashic Vault • By AVNTS ONLINE – Dr. Roy's Gurukul</p>
 
     <div style="margin-top:20px;">
-        <a href="Amrit_Dwar_Full_Library_Index.txt" style="color:var(--gold);margin:0 10px;text-decoration:none;">📜 </a>
+        <a href="Amrit_Dwar_Full_Library_Index.txt" style="color:var(--gold);margin:0 10px;text-decoration:none;">📜 Full Library Index (.txt)</a>
     </div>
 
     <p style="color:#444;font-size:0.75rem;margin-top:25px;">© 2026 AVNTS ONLINE – Dr. Roy's Gurukul. All Rights Reserved.</p>
